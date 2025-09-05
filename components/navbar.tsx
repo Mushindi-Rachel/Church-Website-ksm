@@ -23,7 +23,7 @@ export default function Navbar() {
             height={40}
             className="rounded-full"
           />
-  <span className="text-xl font-bold">Jesus Celebration Church - Kisumu</span>
+  <span className="text-xl font-bold">Jesus Celebration Center - Kisumu</span>
 </Link>
 
 

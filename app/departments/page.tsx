@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -18,10 +21,10 @@ const departments = [
     id: 2,
     name: "Youth Ministry",
     description:
-      "Guiding teenagers in their faith journey through relevant teaching, mentorship, and community building.",
+      "Guiding the young generation in their faith journey through relevant teaching, mentorship, and community building.",
     image: "/youth.jpeg",
     leader: "Pastor Sarah Johnson",
-    meetingTimes: "Wednesdays at 6:30 PM and Sundays at 11:00 AM",
+    meetingTimes: "Monday at 5:30 PM and Tuesday at 6:00 PM - 11:00 PM",
   },
   {
     id: 3,
@@ -84,17 +87,35 @@ export default function DepartmentsPage() {
         <Image src="/bgWoodP.jpg" alt="Departments" fill className="object-cover" priority />
         <div className="relative z-20 flex h-full items-center justify-center text-center">
           <div className="max-w-3xl px-4">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Church Departments</h1>
-            <p className="text-lg md:text-xl text-white">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl font-bold text-white mb-4"
+            >
+              Church Departments
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-lg md:text-xl text-white"
+            >
               Discover the various ministries and teams that make up our church family
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* Introduction */}
       <section className="py-16 bg-muted/50">
-        <div className="container text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+          className="container text-center"
+        >
           <h2 className="text-3xl font-bold mb-6">Get Involved</h2>
           <p className="max-w-3xl mx-auto text-lg text-muted-foreground mb-8">
             Our church is made up of many departments and ministries, each serving a unique purpose in our community. We
@@ -104,7 +125,7 @@ export default function DepartmentsPage() {
           <Button asChild size="lg">
             <Link href="#departments">View Departments</Link>
           </Button>
-        </div>
+        </motion.div>
       </section>
 
       {/* Departments List */}
@@ -112,33 +133,41 @@ export default function DepartmentsPage() {
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Departments</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {departments.map((department) => (
-              <Card key={department.id} className="overflow-hidden flex flex-col">
-                <div className="aspect-video relative">
-                  <Image
-                    src={department.image || "/placeholder.svg"}
-                    alt={department.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>{department.name}</CardTitle>
-                  <p className="text-sm font-medium text-muted-foreground">Led by: {department.leader}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{department.description}</p>
-                  <div className="bg-muted p-3 rounded-md">
-                    <p className="text-sm font-medium">Meeting Times:</p>
-                    <p className="text-sm text-muted-foreground">{department.meetingTimes}</p>
+            {departments.map((department, i) => (
+              <motion.div
+                key={department.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden flex flex-col">
+                  <div className="aspect-video relative">
+                    <Image
+                      src={department.image || "/placeholder.svg"}
+                      alt={department.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                </CardContent>
-                <CardFooter className="mt-auto">
-                  <Button asChild className="w-full">
-                    <Link href={`/departments/${department.id}`}>Learn More</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
+                  <CardHeader>
+                    <CardTitle>{department.name}</CardTitle>
+                    <p className="text-sm font-medium text-muted-foreground">Led by: {department.leader}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-4">{department.description}</p>
+                    <div className="bg-muted p-3 rounded-md">
+                      <p className="text-sm font-medium">Meeting Times:</p>
+                      <p className="text-sm text-muted-foreground">{department.meetingTimes}</p>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="mt-auto">
+                    <Button asChild className="w-full">
+                      <Link href={`/departments/${department.id}`}>Learn More</Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -148,10 +177,21 @@ export default function DepartmentsPage() {
       <section className="py-16 bg-muted/50">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.9 }}
+              viewport={{ once: true }}
+              className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden"
+            >
               <Image src="/placeholder.svg?height=400&width=600" alt="Volunteer" fill className="object-cover" />
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.9 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-3xl font-bold mb-6">Volunteer With Us</h2>
               <p className="text-muted-foreground mb-6">
                 Volunteering is a wonderful way to serve God, use your gifts, and connect with others in our church
@@ -170,7 +210,7 @@ export default function DepartmentsPage() {
                   <Link href="#">Contact Us</Link>
                 </Button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -181,73 +221,67 @@ export default function DepartmentsPage() {
           <h2 className="text-3xl font-bold text-center mb-12">Department Leadership Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {
-                name: "Pastor Pamela Otieno",
-                role: "Children's Ministry Director",
-                image: "/placeholder.svg?height=300&width=300",
-              },
-              {
-                name: "Pastor Luke Obeto",
-                role: "Youth Ministry Director",
-                image: "/placeholder.svg?height=300&width=300",
-              },
-              {
-                name: "Pastor Paul Solomon",
-                role: "Worship Director",
-                image: "/placeholder.svg?height=300&width=300",
-              },
-              {
-                name: "Elizabeth Wilson",
-                role: "Outreach Coordinator",
-                image: "/placeholder.svg?height=300&width=300",
-              },
-              {
-                name: "Thomas Anderson",
-                role: "Prayer Ministry Leader",
-                image: "/placeholder.svg?height=300&width=300",
-              },
-              {
-                name: "David Thompson",
-                role: "Men's Ministry Leader",
-                image: "/placeholder.svg?height=300&width=300",
-              },
-              {
-                name: "Jennifer Roberts",
-                role: "Women's Ministry Leader",
-                image: "/placeholder.svg?height=300&width=300",
-              },
-              {
-                name: "Robert Johnson",
-                role: "Hospitality Team Leader",
-                image: "/placeholder.svg?height=300&width=300",
-              },
+              { name: "Pastor Pamela Otieno", role: "Children's Ministry Director", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Pastor Paul Solomon", role: "Worship Director", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Elizabeth Wilson", role: "Outreach Coordinator", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Thomas Anderson", role: "Prayer Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
+              { name: "David Thompson", role: "Men's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Jennifer Roberts", role: "Women's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Robert Johnson", role: "Hospitality Team Leader", image: "/placeholder.svg?height=300&width=300" },
             ].map((leader, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="aspect-square relative">
-                  <Image src={leader.image || "/placeholder.svg"} alt={leader.name} fill className="object-cover" />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-lg">{leader.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{leader.role}</p>
-                </CardHeader>
-              </Card>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden">
+                  <div className="aspect-square relative">
+                    <Image src={leader.image || "/placeholder.svg"} alt={leader.name} fill className="object-cover" />
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-lg">{leader.name}</CardTitle>
+                    <p className="text-sm text-muted-foreground">{leader.role}</p>
+                  </CardHeader>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">Find Your Place to Serve</h2>
-          <p className="max-w-2xl mx-auto mb-8 text-lg">
-            We believe that God has given each person unique gifts and talents to be used for His glory. Discover where
-            you can serve and make a difference in our church and community.
-          </p>
-          <Button asChild variant="secondary" size="lg">
-            <Link href="#">Take Spiritual Gifts Assessment</Link>
-          </Button>
-        </div>
+      <section className="relative py-20 bg-gradient-to-r from-blue-900 via-purple-600 to-blue-400 text-white overflow-hidden animate-gradient-x">
+        <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_top_left,_#ffffff33,_transparent_40%)]" />
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true, amount: 0.25 }}
+          className="relative container text-center"
+        >
+          <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-10 shadow-lg border border-white/10">
+            <h2 className="text-3xl font-bold mb-4">Find Your Place to Serve</h2>
+            <p className="max-w-2xl mx-auto mb-6 text-lg">
+              We believe God has given each person unique gifts to serve His kingdom. Discover where you can use your gifts to make a difference.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button asChild variant="secondary" size="lg" className="shadow-lg">
+                <Link href="#">Take Spiritual Gifts Assessment</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="bg-transparent text-white border-white hover:bg-white/10"
+              >
+                <Link href="/volunteer">Volunteer Application</Link>
+              </Button>
+            </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   )

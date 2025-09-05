@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChevronLeft, ChevronRight, Clock, MapPin } from "lucide-react"
@@ -69,40 +70,45 @@ const weeklyPrograms = [
       { time: "11:30 AM - 2:00 PM", name: "Main Service" },
     ],
   },
-   {
+  {
     day: "Monday",
     events: [
       { time: "5:30 AM - 7:00 AM", name: "Morning Glory" },
       { time: "12:30 PM - 2:00 PM", name: "Grace Hour" },
-      { time: "5:00 PM - 7:00 PM", name: "Prayer Meeting" }],
+      { time: "5:00 PM - 7:00 PM", name: "Prayer Meeting" },
+    ],
   },
   {
     day: "Tuesday",
     events: [
       { time: "5:30 AM - 7:00 AM", name: "Morning Glory" },
       { time: "12:30 PM - 2:00 PM", name: "Grace Hour" },
-      { time: "5:00 PM - 7:00 PM", name: "Home Bible Fellowship" }],
+      { time: "5:00 PM - 7:00 PM", name: "Home Bible Fellowship" },
+    ],
   },
   {
     day: "Wednesday",
     events: [
       { time: "5:30 AM - 7:00 AM", name: "Morning Glory" },
       { time: "12:30 PM - 2:00 PM", name: "Grace Hour" },
-      { time: "5:00 PM - 7:00 PM", name: "Communion Service" }],
+      { time: "5:00 PM - 7:00 PM", name: "Communion Service" },
+    ],
   },
-   {
+  {
     day: "Thursday",
     events: [
       { time: "5:30 AM - 7:00 AM", name: "Morning Glory" },
       { time: "12:30 PM - 2:00 PM", name: "Grace Hour" },
-      { time: "5:00 PM - 7:00 PM", name: "Home Bible Fellowship" }],
+      { time: "5:00 PM - 7:00 PM", name: "Home Bible Fellowship" },
+    ],
   },
   {
     day: "Friday",
     events: [
       { time: "5:30 AM - 7:00 AM", name: "Morning Glory" },
       { time: "12:30 PM - 2:00 PM", name: "Grace Hour" },
-      { time: "6:00 PM - 11:00 PM", name: "Evening Service" }],
+      { time: "6:00 PM - 11:00 PM", name: "Evening Service" },
+    ],
   },
 ]
 
@@ -160,13 +166,18 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black/40 z-10" />
             <Image
-              src={slide.image || "\hbf-background.png"}
+              src={slide.image || "/hbf-background.png"}
               alt={slide.title}
               fill
               className="object-cover"
               priority={index === 0}
             />
-            <div className="relative z-20 flex h-full items-center justify-center text-center">
+            <motion.div
+              className="relative z-20 flex h-full items-center justify-center text-center"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
               <div className="max-w-3xl px-4">
                 <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">{slide.title}</h1>
                 <p className="text-lg md:text-xl text-white mb-8">{slide.description}</p>
@@ -174,7 +185,7 @@ export default function Home() {
                   <Link href={slide.buttonLink}>{slide.buttonText}</Link>
                 </Button>
               </div>
-            </div>
+            </motion.div>
           </div>
         ))}
 
@@ -208,7 +219,13 @@ export default function Home() {
       </section>
 
       {/* Welcome Section */}
-      <section className="py-16 bg-muted/50">
+      <motion.section
+        className="py-16 bg-muted/50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Welcome to JCC - Kisumu</h2>
           <p className="max-w-3xl mx-auto text-lg text-muted-foreground mb-8">
@@ -224,80 +241,121 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Weekly Programs Section */}
-      <section className="py-16">
+      <motion.section
+        className="py-16"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Weekly Programs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {weeklyPrograms.map((program) => (
-              <Card key={program.day} className="h-full">
-                <CardHeader>
-                  <CardTitle>{program.day}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-4">
-                    {program.events.map((event, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                        <div>
-                          <p className="font-medium">{event.name}</p>
-                          <p className="text-sm text-muted-foreground">{event.time}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={program.day}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle>{program.day}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-4">
+                      {program.events.map((event, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                          <div>
+                            <p className="font-medium">{event.name}</p>
+                            <p className="text-sm text-muted-foreground">{event.time}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Church Services Section */}
-      <section className="py-16 bg-muted/50">
+      <motion.section
+        className="py-16 bg-muted/50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {churchServices.map((service, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="aspect-video relative">
-                  <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover" />
-                </div>
-                <CardHeader>
-                  <CardTitle>{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden">
+                  <div className="aspect-video relative">
+                    <Image
+                      src={service.image || "/placeholder.svg"}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>{service.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Upcoming Event Banner */}
-      <section className="py-12 bg-primary text-primary-foreground">
+      <motion.section
+        className="relative py-20 bg-gradient-to-r from-blue-900 via-purple-600 to-blue-400 text-white overflow-hidden"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Women of great Influence Conference</h3>
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <h3 className="text-2xl font-bold mb-2">30th Anniversary</h3>
               <p className="flex items-center gap-2 mb-1">
                 <Clock className="h-5 w-5" />
-                <span>August 13th - 15th All Day</span>
+                <span>October 5th - 10th All Day</span>
               </p>
               <p className="flex items-center gap-2">
                 <MapPin className="h-5 w-5" />
                 <span>JCC - Kisumu Sanctuary</span>
               </p>
-            </div>
-            <Button asChild variant="secondary" size="lg">
-              <Link href="/events">View All Events</Link>
-            </Button>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <Button asChild variant="white" size="lg">
+                <Link href="/events">View All Events</Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   )
 }

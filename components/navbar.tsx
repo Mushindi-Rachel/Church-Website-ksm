@@ -4,9 +4,11 @@ import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import GiveModal from "./givemodal";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isGiveOpen, setIsGiveOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -47,9 +49,12 @@ export default function Navbar() {
           <Link href="/home-bible-fellowship" className="text-sm font-medium transition-colors hover:text-primary">
             Home Bible Fellowship
           </Link>
-          <Button variant="default" size="sm">
-            Give
-          </Button>
+          <Button variant="default" size="sm" onClick={() => setIsGiveOpen(true)}>
+                Give
+              </Button>
+
+              <GiveModal isOpen={isGiveOpen} onClose={() => setIsGiveOpen(false)} />
+
         </nav>
 
         {/* Mobile Menu Button */}

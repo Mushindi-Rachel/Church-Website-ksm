@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -16,7 +17,7 @@ const upcomingEvents = [
     date: "October 05, 2025 - October 10, 2025",
     time: "Whole Day",
     location: "JCC Kisumu Sanctuary",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/30thAnniversary.jpeg",
     description: "",
   },
   {
@@ -25,7 +26,7 @@ const upcomingEvents = [
     date: "December 15 , 2025 - December 20 , 2025",
     time: "Whole Day",
     location: "JCC Kisumu Sanctuary",
-    image: "/youthAblaze.jfif?height=300&width=500",
+    image: "/ABLAZE.png",
     description: "",
   },
 ]
@@ -52,6 +53,27 @@ const pastEvents = [
 ]
 
 export default function EventsPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  // Close modal on Escape and lock scrolling when modal open
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setSelectedImage(null)
+    }
+
+    if (selectedImage) {
+      document.addEventListener("keydown", onKey)
+      // lock scroll
+      const original = document.body.style.overflow
+      document.body.style.overflow = "hidden"
+      return () => {
+        document.removeEventListener("keydown", onKey)
+        document.body.style.overflow = original
+      }
+    }
+    return
+  }, [selectedImage])
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -88,7 +110,7 @@ export default function EventsPage() {
               transition={{ duration: 0.8 }}
               className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden"
             >
-              <Image src="/jcc-ksm.jfif" alt="Annual Church Picnic" fill className="object-cover" />
+              <Image src="/30thAnniversary.jpeg" alt="Annual Church Picnic" fill className="object-contain" />
             </motion.div>
             <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
               <h3 className="text-2xl font-bold mb-4">30th Anniversary</h3>
@@ -116,7 +138,7 @@ export default function EventsPage() {
                 </div>
               </div>
               <p className="text-muted-foreground mb-6">
-                Join us for our 30th anniversary! Come celebrate 30 years of God's faithfulness with us!
+                This is a special invitation to all sons, daughters and friends whose lives and families have been impacted by this ministry since October 1995. It's time to give glory to God, Purpose to join us in thanksgiving!
               </p>
               <div className="flex gap-4">
                 <Button asChild>
@@ -156,8 +178,13 @@ export default function EventsPage() {
                 {upcomingEvents.map((event) => (
                   <motion.div key={event.id} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
                     <Card className="overflow-hidden flex flex-col">
-                      <div className="aspect-video relative">
-                        <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+                      <div
+                        className="aspect-video relative cursor-pointer"
+                        onClick={() => setSelectedImage(event.image)}
+                        role="button"
+                        aria-label={`Open flyer for ${event.title}`}
+                      >
+                        <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-contain" />
                       </div>
                       <CardHeader>
                         <CardTitle className="line-clamp-2">{event.title}</CardTitle>
@@ -204,8 +231,13 @@ export default function EventsPage() {
                 {pastEvents.map((event) => (
                   <motion.div key={event.id} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
                     <Card className="overflow-hidden flex flex-col">
-                      <div className="aspect-video relative">
-                        <Image src={event.image || "/mtc2025"} alt={event.title} fill className="object-cover" />
+                      <div
+                        className="aspect-video relative cursor-pointer"
+                        onClick={() => setSelectedImage(event.image)}
+                        role="button"
+                        aria-label={`Open flyer for ${event.title}`}
+                      >
+                        <Image src={event.image || "/mtc2025"} alt={event.title} fill className="object-contain" />
                       </div>
                       <CardHeader>
                         <CardTitle className="line-clamp-2">{event.title}</CardTitle>
@@ -300,6 +332,35 @@ export default function EventsPage() {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Flyer Modal / Lightbox */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+          aria-modal="true"
+          role="dialog"
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.25 }}
+            className="relative w-[90%] md:w-[80%] lg:w-[70%] h-[80%] md:h-[80%]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full rounded-lg">
+              <Image src={selectedImage} alt="Event Flyer" fill className="object-contain rounded-lg" />
+            </div>
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 bg-white/80 text-black px-3 py-1 rounded-lg font-bold hover:bg-white"
+              aria-label="Close flyer"
+            >
+              ✕
+            </button>
+          </motion.div>
+        </div>
+      )}
     </div>
   )
 }

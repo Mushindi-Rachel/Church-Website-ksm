@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   // Example: fetch from YouTube API
   const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${process.env.YT_PLAYLIST_ID}&part=snippet&maxResults=10&key=${process.env.YT_API_KEY}`
+    `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${process.env.NEXT_PUBLIC_YT_PLAYLIST_ID}&part=snippet&maxResults=10&key=${process.env.NEXT_PUBLIC_YT_API_KEY}`
   );
 
   const data = await res.json();

@@ -162,7 +162,7 @@ export default function AboutPage() {
               {
                 name: "Bishop Dr. Mark Kegohi",
                 role: "Overseer",
-                image: "/bishopMK.jfif?height=300&width=300",
+                image: "/About/IMG_0345.JPG",
                 bio: ".",
               },
               {
@@ -174,31 +174,19 @@ export default function AboutPage() {
               {
                 name: "Pastor Selina. K. Nzioka",
                 role: "Pastor",
-                image: "/pastorSelina.jpg?height=300&width=300",
+                image: "/About/581A1431.JPG",
                 bio: "",
               },
               {
                 name: "Pastor Luke Obeto",
                 role: "Youth Pastor",
-                image: "/placeholder.svg?height=300&width=300",
-                bio: "",
-              },
-              {
-                name: "Pastor David Otieno",
-                role: "Pastor",
-                image: "/placeholder.svg?height=300&width=300",
-                bio: "",
-              },
-              {
-                name: "Pastor David Lyanda",
-                role: "Pastor",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/About/581A1409.JPG",
                 bio: "",
               },
               {
                 name: "Pastor Vincent Miya",
                 role: "Pastor",
-                image: "/placeholder.svg?height=300&width=300",
+                image: "/About/581A1420.JPG",
                 bio: "",
               },
             ].map((leader, index) => (

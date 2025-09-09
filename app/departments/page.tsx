@@ -13,8 +13,8 @@ const departments = [
     name: "Children's Ministry",
     description:
       "Nurturing the spiritual growth of children through age-appropriate Bible teaching, worship, and activities.",
-    image: "/placeholder.svg?height=300&width=500",
-    leader: "Rebecca Davis",
+    image: "/Departments/581A1486.JPG",
+    leader: "Pastor Pamela Otieno",
     meetingTimes: "Sundays at 9:00 AM and 11:00 AM",
   },
   {
@@ -23,25 +23,41 @@ const departments = [
     description:
       "Guiding the young generation in their faith journey through relevant teaching, mentorship, and community building.",
     image: "/youth.jpeg",
-    leader: "Pastor Sarah Johnson",
+    leader: "Pastor Luke Obeto",
     meetingTimes: "Monday at 5:30 PM and Tuesday at 6:00 PM - 11:00 PM",
   },
   {
     id: 3,
-    name: "Worship Team",
-    description: "Leading the congregation in worship through music, song, and creative arts.",
-    image: "/placeholder.svg?height=300&width=500",
-    leader: "Michael Williams",
-    meetingTimes: "Rehearsals on Thursdays at 7:00 PM",
+    name: "Women's Ministry",
+    description:
+      "Empowering women to deepen their relationship with God and build meaningful connections with one another.",
+    image: "/Departments/581A1446.JPG",
+    leader: "Pastor Selina Nzioka",
   },
   {
     id: 4,
-    name: "Outreach & Missions",
-    description: "Serving our local community and supporting global missions to share God's love with the world.",
-    image: "/placeholder.svg?height=300&width=500",
-    leader: "Elizabeth Wilson",
-    meetingTimes: "Monthly meetings on the first Tuesday at 6:30 PM",
+    name: "Men's Ministry",
+    description:
+      "Encouraging men to grow in their faith and leadership through fellowship, study, and service.",
+    image: "/Departments/581A1650.JPG",
+    leader: "Pastor ",
   },
+  // {
+  //   id: 5,
+  //   name: "Worship Team",
+  //   description: "Leading the congregation in worship through music, song, and creative arts.",
+  //   image: "/placeholder.svg?height=300&width=500",
+  //   leader: "Michael Williams",
+  //   meetingTimes: "Rehearsals on Thursdays at 7:00 PM",
+  // },
+  // {
+  //   id: 4,
+  //   name: "Outreach & Missions",
+  //   description: "Serving our local community and supporting global missions to share God's love with the world.",
+  //   image: "/placeholder.svg?height=300&width=500",
+  //   leader: "Elizabeth Wilson",
+  //   meetingTimes: "Monthly meetings on the first Tuesday at 6:30 PM",
+  // },
   {
     id: 5,
     name: "Prayer Ministry",
@@ -51,29 +67,12 @@ const departments = [
     meetingTimes: "Tuesdays at 6:00 PM",
   },
   {
-    id: 6,
-    name: "Men's Ministry",
-    description: "Encouraging men to grow in their faith and leadership through fellowship, study, and service.",
-    image: "/placeholder.svg?height=300&width=500",
-    leader: "David Thompson",
-    meetingTimes: "Monthly breakfast on the first Saturday at 8:00 AM",
-  },
-  {
-    id: 7,
-    name: "Women's Ministry",
-    description:
-      "Empowering women to deepen their relationship with God and build meaningful connections with one another.",
-    image: "/placeholder.svg?height=300&width=500",
-    leader: "Jennifer Roberts",
-    meetingTimes: "Bible study on Tuesdays at 10:00 AM and monthly gatherings",
-  },
-  {
     id: 8,
     name: "Hospitality Team",
     description:
       "Creating a welcoming environment for all who enter our doors through greeting, ushering, and hosting.",
-    image: "/placeholder.svg?height=300&width=500",
-    leader: "Robert Johnson",
+    image: "/Departments/581A1466.JPG",
+    leader: "",
     meetingTimes: "Serving on Sundays and special events",
   },
 ]

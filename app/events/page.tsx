@@ -205,6 +205,9 @@ export default function EventsPage() {
                         <p className="text-muted-foreground line-clamp-3">{event.description}</p>
                       </CardContent>
                       <CardFooter className="mt-auto">
+                        <Button asChild variant="outline" className="w-full">
+                          <Link href={`/events/${event.id}`}>Partner with Us</Link>
+                        </Button>
                         <Button asChild className="w-full">
                           <Link href={`https://youthablaze2025.netlify.app/`}>Register Now!</Link>
                         </Button>

@@ -12,7 +12,7 @@ import { ChevronLeft, ChevronRight, Clock, MapPin } from "lucide-react"
 const slides = [
   {
     id: 1,
-    image: "/jcc-choir.jfif",
+    image: "/Home/581A1359.JPG",
     title: "Welcome to JCC - Kisumu",
     description: "Join us in worship and fellowship every Sunday",
     buttonText: "Learn More",
@@ -36,7 +36,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "/rvtvLogo.jfif",
+    image: "/Home/581A1333.JPG",
     title: "RVTV",
     description: "Spreading the Gospel through media and broadcasting",
     buttonText: "Learn More",

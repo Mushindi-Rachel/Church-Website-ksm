@@ -199,7 +199,7 @@ export default function AboutPage() {
               >
                 <Card className="overflow-hidden">
                   <div className="aspect-square relative">
-                    <Image src={leader.image || "/placeholder.svg"} alt={leader.name} fill className="object-cover" />
+                    <Image src={leader.image || "/placeholder.svg"} alt={leader.name} fill className="object-contain" />
                   </div>
                   <CardHeader>
                     <CardTitle>{leader.name}</CardTitle>

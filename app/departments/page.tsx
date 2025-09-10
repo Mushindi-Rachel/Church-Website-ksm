@@ -68,9 +68,9 @@ const departments = [
   },
   {
     id: 8,
-    name: "Hospitality Team",
+    name: "Welfare Team",
     description:
-      "Creating a welcoming environment for all who enter our doors through greeting, ushering, and hosting.",
+      "Creating a welcoming environment and ensuring wellness for all who enter our doors.",
     image: "/Departments/581A1466.JPG",
     leader: "",
     meetingTimes: "Serving on Sundays and special events",
@@ -146,7 +146,7 @@ export default function DepartmentsPage() {
                       src={department.image || "/placeholder.svg"}
                       alt={department.name}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                   <CardHeader>
@@ -183,7 +183,20 @@ export default function DepartmentsPage() {
               viewport={{ once: true }}
               className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden"
             >
-              <Image src="/placeholder.svg?height=400&width=600" alt="Volunteer" fill className="object-cover" />
+             <Image
+    src="/Departments/581A1383.JPG"
+    alt="Volunteer background"
+    fill
+    className="object-cover blur-2xl scale-110 opacity-60"
+  />
+
+  {/* Main image centered, full view */}
+  <Image
+    src="/Departments/581A1383.JPG"
+    alt="Volunteer"
+    fill
+    className="object-contain relative z-10"
+  />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 60 }}
@@ -221,13 +234,13 @@ export default function DepartmentsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { name: "Pastor Pamela Otieno", role: "Children's Ministry Director", image: "/placeholder.svg?height=300&width=300" },
-              { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/placeholder.svg?height=300&width=300" },
-              { name: "Pastor Paul Solomon", role: "Worship Director", image: "/placeholder.svg?height=300&width=300" },
-              { name: "Elizabeth Wilson", role: "Outreach Coordinator", image: "/placeholder.svg?height=300&width=300" },
-              { name: "Thomas Anderson", role: "Prayer Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
-              { name: "David Thompson", role: "Men's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
-              { name: "Jennifer Roberts", role: "Women's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
-              { name: "Robert Johnson", role: "Hospitality Team Leader", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/Departments/581A1409.JPG"},
+              { name: "Pastor Selina Nzioka", role: "Women Ministry", image: "/About/581A1431.JPG" },
+              { name: "Pastor Sophie", role: "Outreach ", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Pastor Catherine", role: "Kingdom Builders", image: "/About/581A1424.JPG"},
+              { name: "Pastor Musuya", role: "Men's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
+              // { name: "", role: "Women's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
+              // { name: "Robert Johnson", role: "Hospitality Team Leader", image: "/placeholder.svg?height=300&width=300" },
             ].map((leader, index) => (
               <motion.div
                 key={index}
@@ -268,15 +281,7 @@ export default function DepartmentsPage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild variant="secondary" size="lg" className="shadow-lg">
-                <Link href="#">Take Spiritual Gifts Assessment</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="bg-transparent text-white border-white hover:bg-white/10"
-              >
-                <Link href="/volunteer">Volunteer Application</Link>
+                <Link href="#">Volunteer Application</Link>
               </Button>
             </div>
           </div>

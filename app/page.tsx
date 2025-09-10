@@ -44,7 +44,7 @@ const slides = [
   },
   {
     id: 5,
-    image: "/jcc-ksm.jfif",
+    image: "/Departments/581A1348.JPG",
     title: "Sunday Service",
     description: "Experience the power of worship with our community",
     buttonText: "Service Times",

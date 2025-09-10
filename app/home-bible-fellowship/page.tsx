@@ -30,18 +30,18 @@ const hbfGroups = [
     focus: "General Bible Study",
     description:
       "A welcoming group for all ages focusing on building a strong foundation in faith through Bible study and discussion.",
-    image: "/placeholder.svg?height=300&width=500",
+    // image: "/placeholder.svg?height=300&width=500",
   },
   {
     id: 2,
     name: "Migosi Region",
     location: "Migosi",
     meetingTime: "Tuesday & Thursday, 5:00 PM",
-    leaders: "Michael Johnson",
+    leaders: "",
     focus: "Young Adults (20s-30s)",
     description:
       "A dynamic group for young adults navigating faith, career, relationships, and purpose in today's world.",
-    image: "/placeholder.svg?height=300&width=500",
+    // image: "/placeholder.svg?height=300&width=500",
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ const hbfGroups = [
     focus: "Families with Children",
     description:
       "A group designed for families to grow together in faith with activities for both parents and children.",
-    image: "/placeholder.svg?height=300&width=500",
+    // image: "/placeholder.svg?height=300&width=500",
   },
   {
     id: 4,
@@ -62,17 +62,17 @@ const hbfGroups = [
     leaders: "Sospeter Onyunga",
     focus: "Seniors",
     description: "A fellowship group for seniors to study God's word, share life experiences, and support one another.",
-    image: "/placeholder.svg?height=300&width=500",
+    // image: "/placeholder.svg?height=300&width=500",
   },
   {
     id: 5,
     name: "Central",
     location: "Polyview",
     meetingTime: "Tuesday & Thursday, 5:00 PM",
-    leaders: "Pastor Sarah Johnson",
+    leaders: "",
     focus: "New Christians",
     description: "A supportive environment for those new to the faith to learn the fundamentals of Christianity.",
-    image: "/placeholder.svg?height=300&width=500",
+    // image: "/placeholder.svg?height=300&width=500",
   },
 ]
 

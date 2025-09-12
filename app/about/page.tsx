@@ -20,7 +20,7 @@ export default function AboutPage() {
             transition={{ duration: 1 }}
             className="max-w-3xl px-4"
           >
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">About JCC Kisumu</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Who we are</h1>
             <p className="text-lg md:text-xl text-white">Learn more about our church, mission, and vision</p>
           </motion.div>
         </div>
@@ -124,7 +124,8 @@ export default function AboutPage() {
                 "Excellence",
                 "Unity",
                 "Diligence",
-                "Creativity",                           
+                "Creativity",           
+                
               ].map((value, index) => (
                 <motion.div
                   key={index}

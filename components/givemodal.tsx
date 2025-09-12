@@ -41,12 +41,12 @@ const offerings: Offering[] = [
     description: "Dedicating our family's altar",
     // qrCode: "/qr-placeholder.svg",
   },
-  {
-    name: "Missions",
-    paybill: "247247",
-    account: "004",
-    description: "Supporting Missions and Outreach",
-  },
+  // {
+  //   name: "Missions",
+  //   paybill: "247247",
+  //   account: "004",
+  //   description: "Supporting Missions and Outreach",
+  // },
 ];
 
 const backdrop = {

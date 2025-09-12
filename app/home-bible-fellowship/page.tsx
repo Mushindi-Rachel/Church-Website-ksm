@@ -176,11 +176,11 @@ export default function HomeBibleFellowshipPage() {
                     </div>
                     <p className="text-muted-foreground">{group.description}</p>
                   </CardContent>
-                  <CardFooter className="mt-auto">
+                  {/* <CardFooter className="mt-auto">
                     <Button asChild className="w-full">
                       <Link href={`/home-bible-fellowship/${group.id}`}>Join This Group</Link>
                     </Button>
-                  </CardFooter>
+                  </CardFooter> */}
                 </Card>
               </motion.div>
             ))}
@@ -292,7 +292,7 @@ export default function HomeBibleFellowshipPage() {
               <AccordionItem value="item-4">
                 <AccordionTrigger>Can I bring my children?</AccordionTrigger>
                 <AccordionContent>
-                  Some groups are family-friendly with activities for kids, while others are adult-focused.
+                  Yes, you can also bring your kids to the home Bible fellowships.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-5">

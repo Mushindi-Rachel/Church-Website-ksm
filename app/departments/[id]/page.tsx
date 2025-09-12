@@ -10,13 +10,9 @@ const departmentDetails = {
   1: {
     name: "Children's Ministry",
     heroImage: "/Departments/children/581A1486.JPG",
-    mission:
-      "Raising Children who understand God's gracious provision of Salvation through Christ Jesus.",
-    objectives: [
-      "To see children come to the knowledge of God’s love and grow spiritually.",
-      "To establish strategies for growing a healthy ministry.",
+    goal: [
+      "Our goal is to raise children who deeply understand God’s gracious provision of salvation through Christ Jesus. We seek to nurture them into a growing knowledge of God’s love, guiding them toward strong spiritual maturity. By establishing clear strategies for building a healthy and vibrant ministry, we aim to provide sound doctrine, loving reproof, and godly instruction that will anchor their faith for life."
     ],
-    goals: "Sound doctrine, reproof, and instruction.",
     leadership: [
       { role: "Patron", name: "Reverend Joyce Kegohi" },
       { role: "Pastor", name: "Pamela Otieno" },
@@ -33,17 +29,12 @@ const departmentDetails = {
       {
         title: "International Empowerment Camp (ICE)",
         description: "Annual camp where children grow spiritually and socially.",
-        image: "/Departments/camp.jpg",
+        image: "/Departments/children/children3.jpeg",
       },
       {
         title: "Holiday Summits",
         description: "Special gatherings during school holidays for growth and fun.",
-        image: "/Departments/summit.jpg",
-      },
-      {
-        title: "Missions & Community Service",
-        description: "Reaching out to communities with love and practical support.",
-        image: "/Departments/missions.jpg",
+        image: "/Departments/children/children2.jpeg",
       },
     ],
     meetings: [
@@ -56,12 +47,9 @@ const departmentDetails = {
   2: {
     name: "Youth Ministry",
     heroImage: "/Departments/youths/GHSK9748.JPG",
-    objective: "The JCC youth ministry is a team of dedicated young people to the service and worship of God. The youth is a transitioning period from the Sunday school children to the youth and later to the the men and wogi. The Jcc ministry International has set aside and grouped the young people away from the congregation so as to build a strong foundation in th at this young age. Train up a child in the way he should grow and whe he is old he shall never depart from it Proverbs 22:6.",
-    objectives: [
-      "To raise God-fearing and purpose-driven youth.",
-      "To nurture leadership through fellowship and mentorship.",
+    goal: [
+      "The JCC youth ministry is a team of dedicated young people committed to the service and worship of God.Youth is a transitioning period from Sunday school into youth life, and later into adulthood where one fully serves as a man or woman of God. The JCC Ministry International has set apart young people from the general congregation to build a strong foundation at this crucial stage of life. As Proverbs 22:6 reminds us: 'Train up a child in the way he should go, and when he is old he shall never depart from it.'",
     ],
-    goals: "Sound doctrine, fellowship, prayer, and discipleship.",
     leadership: [
       { role: "Pastor", name: "Luke Obeto" },
       { role: "Deaconess", name: "Janifer Musuya" },
@@ -84,6 +72,11 @@ const departmentDetails = {
         description: "Every Tuesday from 6:00 PM to 11:00 PM.",
         image: "/Departments/summit.jpg",
       },
+      {
+        title: "Online Bible Study",
+        description: "Every Thursday from 9:00 PM to 10:00 PM.",
+        image: "/Departments/summit.jpg",
+      },
     ],
     activities: [
       {
@@ -100,6 +93,11 @@ const departmentDetails = {
         title: "Youth Talkshow",
         description: "Interactive discussions on relevant life and faith topics.",
         image: "/Departments/youths/DYYL4945.JPG",
+      },
+      {
+        title: "Youth Praise Night",
+        description: ".",
+        image: "/Departments/youths/dinner.jpeg",
       },
       {
         title: "Youth Ablaze",
@@ -138,31 +136,25 @@ export default function DepartmentDetail({ params }: { params: { id: string } })
         </div>
       </section>
 
-      {/* Mission & Objectives */}
-      <section className="container py-12">
+      {/* Our Goal */}
+      <section className="container py-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-bold mb-4">Mission Statement</h2>
-          <p className="mb-8 text-muted-foreground">{department.mission}</p>
-
-          <h2 className="text-2xl font-bold mb-4">Objectives</h2>
-          <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-            {department.objectives.map((obj, i) => (
-              <li key={i}>{obj}</li>
+          <h2 className="text-2xl font-bold center mb-4 text-center">Our Goal</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            {department.goal.map((text, i) => (
+              <p key={i}>{text}</p>
             ))}
-          </ul>
-
-          <h2 className="text-2xl font-bold mt-8 mb-4">Goals</h2>
-          <p className="text-muted-foreground">{department.goals}</p>
+          </div>
         </motion.div>
       </section>
 
       {/* Leadership */}
-      <section className="container py-12">
-        <h2 className="text-2xl font-bold mb-6">Our Leadership</h2>
+      <section className="container py-12 text-center">
+        <h2 className="text-2xl font-bold mb-6 text-center">Our Leadership</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {department.leadership.map((leader, i) => (
             <Card key={i} className="shadow-md">
@@ -177,7 +169,7 @@ export default function DepartmentDetail({ params }: { params: { id: string } })
         </div>
       </section>
 
-      {/* Services (Youth only) */}
+      {/* Services (if present) */}
       {department.services && (
         <section className="container py-12 bg-muted/50 rounded-lg">
           <h2 className="text-2xl font-bold mb-8 text-center">Our Services</h2>
@@ -235,7 +227,7 @@ export default function DepartmentDetail({ params }: { params: { id: string } })
         </div>
       </section>
 
-      {/* Meetings */}
+      {/* Meetings
       <section className="container py-12">
         <h2 className="text-2xl font-bold mb-6">Meetings</h2>
         <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
@@ -243,7 +235,7 @@ export default function DepartmentDetail({ params }: { params: { id: string } })
             <li key={i}>{meeting}</li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </div>
   )
 }

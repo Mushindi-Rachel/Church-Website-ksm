@@ -323,14 +323,7 @@ export default function EventsPage() {
               >
                 <Link href="#">Contact Us</Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="bg-transparent text-white border-white hover:bg-white/20 transition-colors"
-              >
-                <Link href="#">Learn More</Link>
-              </Button>
+              
             </div>
           </motion.div>
         </div>

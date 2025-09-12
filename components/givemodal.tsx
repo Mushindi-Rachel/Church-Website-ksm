@@ -11,7 +11,7 @@ interface Offering {
   paybill: string;
   account: string;
   description: string;
-  qrCode?: string;
+  // qrCode?: string;
 }
 
 interface GiveModalProps {
@@ -21,32 +21,31 @@ interface GiveModalProps {
 
 const offerings: Offering[] = [
   {
-    name: "Tithe",
-    paybill: "123456",
-    account: "001",
-    description: "Monthly giving to support church operations",
-    qrCode: "/qr-placeholder.svg",
+    name: "Offerings/Tithe",
+    paybill: "247247",
+    account: "599058",
+    description: "Giving to support church operations",
+    // qrCode: "/qr-placeholder.svg",
   },
   {
-    name: "Building Fund",
-    paybill: "123456",
-    account: "002",
-    description: "Contributions towards church construction",
-    qrCode: "/qr-placeholder.svg",
+    name: "RVTv",
+    paybill: "247247",
+    account: "358835",
+    description: "Support towards our church media",
+    // qrCode: "/qr-placeholder.svg",
+  },
+  {
+    name: "Family Sacrifice",
+    paybill: "247247",
+    account: "308689",
+    description: "Dedicating our family's altar",
+    // qrCode: "/qr-placeholder.svg",
   },
   {
     name: "Missions",
-    paybill: "123456",
-    account: "003",
-    description: "Supporting local and international missions",
-    qrCode: "/qr-placeholder.svg",
-  },
-  {
-    name: "Charity",
-    paybill: "123456",
+    paybill: "247247",
     account: "004",
-    description: "Donations for charitable activities",
-    qrCode: "/qr-placeholder.svg",
+    description: "Supporting Missions and Outreach",
   },
 ];
 
@@ -160,7 +159,7 @@ export default function GiveModal({ isOpen, onClose }: GiveModalProps) {
                     </Button>
                   </p>
 
-                  {offering.qrCode && (
+                  {/* {offering.qrCode && (
                     <div className="mt-2 w-32 h-32 relative">
                       <Image
                         src={offering.qrCode}
@@ -169,7 +168,7 @@ export default function GiveModal({ isOpen, onClose }: GiveModalProps) {
                         className="object-contain"
                       />
                     </div>
-                  )}
+                  )} */}
                 </div>
               ))}
             </div>

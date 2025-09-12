@@ -106,9 +106,20 @@ export default function Navbar() {
             >
               Home Bible Fellowship
             </Link>
-            <Button variant="success" size="sm" className="w-full">
+            <Button
+              variant="success"
+              size="sm"
+              className="w-full"
+              onClick={() => {
+                setIsGiveOpen(true);
+                toggleMenu(); // close mobile menu so modal shows properly
+              }}
+            >
               Give
             </Button>
+
+            <GiveModal isOpen={isGiveOpen} onClose={() => setIsGiveOpen(false)} />
+
           </nav>
         </div>
       )}

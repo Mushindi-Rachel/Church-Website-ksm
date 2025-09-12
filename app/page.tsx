@@ -229,8 +229,7 @@ export default function Home() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Welcome to JCC - Kisumu</h2>
           <p className="max-w-3xl mx-auto text-lg text-muted-foreground mb-8">
-            We are a community of believers dedicated to spreading God&apos;s love and word. Our mission is to create a
-            welcoming environment where everyone can experience God&apos;s presence and grow in their faith journey.
+            We are a community of believers dedicated to spreading God&apos;s love and word. Our mission is to equip saints with the work of the ministry.
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild>

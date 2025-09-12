@@ -162,18 +162,18 @@ export default function AboutPage() {
               {
                 name: "Bishop Dr. Mark Kegohi",
                 role: "Overseer",
-                image: "/About/IMG_0345.JPG",
+                image: "/About/IMG_0327.JPG",
                 bio: ".",
               },
               {
                 name: "Reverend Timothy Nzioka",
-                role: "Pastor",
+                role: "Administrator",
                 image: "/pastorTim.jpg?height=300&width=300",
                 bio: "",
               },
               {
                 name: "Pastor Selina. K. Nzioka",
-                role: "Pastor",
+                role: "Administrator",
                 image: "/About/581A1431.JPG",
                 bio: "",
               },
@@ -185,8 +185,14 @@ export default function AboutPage() {
               },
               {
                 name: "Pastor Vincent Miya",
-                role: "Pastor",
+                role: "Conference Pastor",
                 image: "/About/581A1420.JPG",
+                bio: "",
+              },
+              {
+                name: "Pastor Paul Solomon",
+                role: "Praise and Worship",
+                image: "/About/Praise&Worship.jpeg",
                 bio: "",
               },
             ].map((leader, index) => (

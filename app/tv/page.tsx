@@ -11,11 +11,11 @@ export default function TVPage() {
       {/* Hero Section */}
       <section className="relative h-[300px] md:h-[400px] overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <Image src="/placeholder.svg?height=400&width=1200" alt="Faith TV" fill className="object-cover" priority />
+        <Image src="/Home/581A1333.JPG" alt="RVTv" fill className="object-cover" priority />
         <div className="relative z-20 flex h-full items-center justify-center text-center">
           <div className="max-w-3xl px-4">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Faith TV</h1>
-            <p className="text-lg md:text-xl text-white">Spreading the Gospel through media and broadcasting</p>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Redeemer's Voice Tv</h1>
+            <p className="text-lg md:text-xl text-white">Bringing the Liberating Truth</p>
           </div>
         </div>
       </section>
@@ -25,10 +25,10 @@ export default function TVPage() {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">About Faith TV</h2>
+              <h2 className="text-3xl font-bold mb-6">About RVTv</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Faith TV was established in 2010 with a vision to reach millions of homes with the message of hope,
+                  Redeemer's Voice TV was established in 2023 with a vision to reach millions of homes with the message of hope,
                   faith, and salvation through Jesus Christ. As the media ministry of Church of Faith, we broadcast
                   inspirational programming 24 hours a day, 7 days a week.
                 </p>
@@ -39,7 +39,7 @@ export default function TVPage() {
                   of Jesus Christ.
                 </p>
                 <p>
-                  Faith TV is committed to producing high-quality, engaging content that addresses the spiritual,
+                  RVTv is committed to producing high-quality, engaging content that addresses the spiritual,
                   emotional, and practical needs of our audience. Whether through worship services, Bible studies, talk
                   shows, or special events, we strive to create programming that inspires, educates, and transforms
                   lives.
@@ -52,7 +52,7 @@ export default function TVPage() {
               </div>
             </div>
             <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-              <Image src="/placeholder.svg?height=400&width=600" alt="Faith TV Studio" fill className="object-cover" />
+              <Image src="/Home/581A1333.JPG" alt="RVTv Studio" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function TVPage() {
       {/* Watch Live Section */}
       <section id="watch-live" className="py-16">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Watch Faith TV Live</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Watch RVTv Live</h2>
           <div className="max-w-4xl mx-auto">
             <div className="aspect-video bg-black relative rounded-lg overflow-hidden mb-6">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -69,7 +69,7 @@ export default function TVPage() {
                   <div className="bg-primary/20 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                     <Play className="h-10 w-10 text-primary" />
                   </div>
-                  <p className="text-white text-lg">Click to watch Faith TV live stream</p>
+                  <p className="text-white text-lg">Click to watch RVTv live stream</p>
                 </div>
               </div>
             </div>
@@ -108,28 +108,9 @@ export default function TVPage() {
                   </p>
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-primary/10 p-2 rounded-full">
-                    <Radio className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Faith Radio</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    FM 98.7 in local area
-                    <br />
-                    Online radio streaming
-                    <br />
-                    Podcast available
-                  </p>
-                </CardContent>
-              </Card>
             </div>
             <div className="flex justify-center gap-4">
-              <Button asChild>
-                <Link href="#">Download Our App</Link>
-              </Button>
+        
               <Button asChild variant="outline">
                 <Link href="#">Program Schedule</Link>
               </Button>
@@ -424,23 +405,23 @@ export default function TVPage() {
               <Image src="/placeholder.svg?height=400&width=600" alt="Support Faith TV" fill className="object-cover" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6">Support Faith TV</h2>
+              <h2 className="text-3xl font-bold mb-6">Support RVTv</h2>
               <p className="text-muted-foreground mb-6">
-                Faith TV is a non-profit ministry that relies on the generous support of viewers like you. Your
-                donations help us continue broadcasting the Gospel message to homes around the world and producing
+                RVTv is a non-profit ministry that relies on the generous support of viewers like you. Your
+                giving help us continue broadcasting the Gospel message to homes around the world and producing
                 quality Christian programming that changes lives.
               </p>
               <p className="text-muted-foreground mb-6">
-                When you partner with Faith TV, you become part of a global mission to share God's love and truth
+                When you partner with RVTv, you become part of a global mission to share God's love and truth
                 through media. Your support enables us to reach people who might never enter a church building but can
                 encounter Christ through their television, computer, or mobile device.
               </p>
               <div className="flex gap-4">
                 <Button asChild>
-                  <Link href="#">Donate Now</Link>
+                  <Link href="/Give">Support Now</Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="#">Become a Monthly Partner</Link>
+                  <Link href="#">Become a Partner</Link>
                 </Button>
               </div>
             </div>
@@ -457,7 +438,7 @@ export default function TVPage() {
             be part of a global community of believers.
           </p>
           <Button asChild variant="secondary" size="lg">
-            <Link href="#watch-live">Watch Faith TV Now</Link>
+            <Link href="#watch-live">Watch RVTv Now</Link>
           </Button>
         </div>
       </section>

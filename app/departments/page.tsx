@@ -13,7 +13,7 @@ const departments = [
     name: "Children's Ministry",
     description:
       "Nurturing the spiritual growth of children through age-appropriate Bible teaching, worship, and activities.",
-    image: "/Departments/581A1486.JPG",
+    image: "/Departments/children/581A1486.JPG",
     leader: "Pastor Pamela Otieno",
     meetingTimes: "Sundays at 9:00 AM and 11:00 AM",
   },
@@ -173,59 +173,66 @@ export default function DepartmentsPage() {
       </section>
 
       {/* Volunteer Section */}
-      <section className="py-16 bg-muted/50">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9 }}
-              viewport={{ once: true }}
-              className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden"
-            >
-             <Image
-    src="/Departments/581A1383.JPG"
-    alt="Volunteer background"
-    fill
-    className="object-cover blur-2xl scale-110 opacity-60"
-  />
-
-  {/* Main image centered, full view */}
-  <Image
-    src="/Departments/581A1383.JPG"
-    alt="Volunteer"
-    fill
-    className="object-contain relative z-10"
-  />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold mb-6">Volunteer With Us</h2>
-              <p className="text-muted-foreground mb-6">
-                Volunteering is a wonderful way to serve God, use your gifts, and connect with others in our church
-                family. Whether you have a lot of time to give or just a little, there's a place for you to serve.
-              </p>
-              <p className="text-muted-foreground mb-6">
-                We believe that everyone has been gifted by God with unique talents and abilities. When we use these
-                gifts to serve others, we not only bless those around us but also experience the joy that comes from
-                being part of something greater than ourselves.
-              </p>
-              <div className="flex gap-4">
-                <Button asChild>
-                  <Link href="#">Volunteer Application</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link href="#">Contact Us</Link>
-                </Button>
-              </div>
-            </motion.div>
-          </div>
+<section className="py-16 bg-muted/50">
+  <div className="container">
+    <motion.h2
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-3xl font-bold mb-6 text-center md:text-left"
+    ><h2 className="text-3xl font-bold text-center mb-12">Volunteer With Us</h2>
+    </motion.h2>
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <motion.div
+        initial={{ opacity: 0, x: -60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: true }}
+        className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden"
+      >
+        {/* Blurred background image for depth */}
+        <Image
+          src="/Departments/581A1383.JPG"
+          alt="Volunteer background"
+          fill
+          className="object-cover blur-2xl scale-110 opacity-60"
+        />
+        {/* Foreground image fully visible */}
+        <Image
+          src="/Departments/581A1383.JPG"
+          alt="Volunteer"
+          fill
+          className="object-contain relative z-10"
+        />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: true }}
+      >
+        <p className="text-muted-foreground mb-6">
+          Volunteering is a wonderful way to serve God, use your gifts, and connect with others in our church
+          family. Whether you have a lot of time to give or just a little, there's a place for you to serve.
+        </p>
+        <p className="text-muted-foreground mb-6">
+          We believe that everyone has been gifted by God with unique talents and abilities. When we use these
+          gifts to serve others, we not only bless those around us but also experience the joy that comes from
+          being part of something greater than ourselves.
+        </p>
+        <div className="flex gap-4">
+          <Button asChild>
+            <Link href="#">Volunteer Application</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href="#">Contact Us</Link>
+          </Button>
         </div>
-      </section>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Leadership Team */}
       <section className="py-16">

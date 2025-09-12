@@ -8,11 +8,14 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "Jesus Celebration Church - Kisumu | The Light House of Africa",
-  description: "Welcome to JCC-Kisumu - Join us in worship and fellowship",
-    generator: 'v0.dev'
+export const metadata = {
+  title: {
+    default: "Jesus Celebration Center - Kisumu",
+    template: "%s | JCC Kisumu"
+  },
+  description: "Official website of Jesus Celebration Center - Kisumu. Stay updated with sermons, events, and ministries."
 }
+
 
 export default function RootLayout({
   children,

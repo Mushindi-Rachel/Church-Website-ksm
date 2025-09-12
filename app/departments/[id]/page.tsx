@@ -56,7 +56,7 @@ const departmentDetails = {
   2: {
     name: "Youth Ministry",
     heroImage: "/Departments/youths/GHSK9748.JPG",
-    mission: "Empowering the youth to grow spiritually, discover purpose, and impact society.",
+    objective: "The JCC youth ministry is a team of dedicated young people to the service and worship of God. The youth is a transitioning period from the Sunday school children to the youth and later to the the men and wogi. The Jcc ministry International has set aside and grouped the young people away from the congregation so as to build a strong foundation in th at this young age. Train up a child in the way he should grow and whe he is old he shall never depart from it Proverbs 22:6.",
     objectives: [
       "To raise God-fearing and purpose-driven youth.",
       "To nurture leadership through fellowship and mentorship.",
@@ -72,7 +72,7 @@ const departmentDetails = {
       {
         title: "Sunday Service",
         description: "Youth service every Sunday from 9:30 AM to 11:30 AM.",
-        image: "/Departments/sundayschool.jpg",
+        image: "/Departments/youths/youths1.jpeg",
       },
       {
         title: "Prayer Meeting",
@@ -94,7 +94,7 @@ const departmentDetails = {
       {
         title: "Youth Dinner",
         description: "An annual dinner event to bond and fellowship.",
-        image: "/Departments/camp.jpg",
+        image: "/Departments/youths/dinner.jpeg",
       },
       {
         title: "Youth Talkshow",

@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next/types"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
@@ -13,10 +13,12 @@ export const metadata = {
     default: "jcc Kisumu",
     template: "%s | JCC Kisumu"
   },
-  description: "Official website of Jesus Celebration Center - Kisumu. Stay updated with sermons, events, and ministries."
-}
+  description: "Official website of Jesus Celebration Center - Kisumu. Stay updated with sermons, events, and ministries.",
+  icons: {
+      icon: "/jcc logo.png", 
+    },
 
-
+  }
 export default function RootLayout({
   children,
 }: Readonly<{

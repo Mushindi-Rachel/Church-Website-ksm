@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: {
-    default: "Jesus Celebration Center - Kisumu",
+    default: "jcc Kisumu",
     template: "%s | JCC Kisumu"
   },
   description: "Official website of Jesus Celebration Center - Kisumu. Stay updated with sermons, events, and ministries."

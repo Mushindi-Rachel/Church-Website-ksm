@@ -63,8 +63,8 @@ const departments = [
     name: "Prayer Ministry",
     description: "Interceding for the needs of the church, community, and world through regular prayer gatherings.",
     image: "/placeholder.svg?height=300&width=500",
-    leader: "Thomas Anderson",
-    meetingTimes: "Tuesdays at 6:00 PM",
+    leader: "Pastor Robin",
+    meetingTimes: "Mondays at 5:30 PM",
   },
   {
     id: 8,
@@ -72,7 +72,7 @@ const departments = [
     description:
       "Creating a welcoming environment and ensuring wellness for all who enter our doors.",
     image: "/Departments/581A1466.JPG",
-    leader: "",
+    leader: "Pastor Omusuya",
     meetingTimes: "Serving on Sundays and special events",
   },
 ]
@@ -242,10 +242,10 @@ export default function DepartmentsPage() {
             {[
               { name: "Pastor Pamela Otieno", role: "Children's Ministry Director", image: "/placeholder.svg?height=300&width=300" },
               { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/Departments/581A1409.JPG"},
-              { name: "Pastor Selina Nzioka", role: "Women Ministry", image: "/About/581A1431.JPG" },
+              { name: "Pastor Selina Nzioka", role: "Women Ministry Director", image: "/About/581A1431.JPG" },
               { name: "Pastor Sophie", role: "Outreach ", image: "/placeholder.svg?height=300&width=300" },
-              { name: "Pastor Catherine", role: "Kingdom Builders", image: "/About/581A1424.JPG"},
-              { name: "Pastor Musuya", role: "Men's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Pastor Catherine", role: "Kingdom Builders Director", image: "/About/581A1424.JPG"},
+              { name: "Pastor Omusuya", role: "Men's Ministry Director", image: "/About/KCQD6229.JPG" },
               // { name: "", role: "Women's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
               // { name: "Robert Johnson", role: "Hospitality Team Leader", image: "/placeholder.svg?height=300&width=300" },
             ].map((leader, index) => (

@@ -15,7 +15,7 @@ export async function GET() {
     description: item.snippet.description,
     image: item.snippet.thumbnails.high.url,
     date: item.snippet.publishedAt,
-    speaker: "Unknown", // You can add custom logic if needed
+    speaker: "Unknown", 
   }));
 
   return NextResponse.json(sermons);

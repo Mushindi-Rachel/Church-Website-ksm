@@ -57,7 +57,19 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="relative h-[400px] rounded-lg overflow-hidden"
             >
-              <Image src="/church (1).jpeg" alt="Church History" fill className="object-cover" />
+              {/* Blurred background image for depth */}
+        <Image
+          src="/church (1).jpeg"
+          alt="about background"
+          fill
+          className="object-cover blur-2xl scale-110 opacity-90"
+        />
+        {/* Foreground image fully visible */}
+        <Image src="/About/BHDQ4991.JPG" 
+        alt="Church History"
+          fill
+          className="object-contain relative z-10"
+        />
             </motion.div>
           </div>
         </div>
@@ -168,12 +180,12 @@ export default function AboutPage() {
               {
                 name: "Reverend Timothy Nzioka",
                 role: "Administrator",
-                image: "/pastorTim.jpg?height=300&width=300",
+                image: "/About/Admin.jpeg",
                 bio: "",
               },
               {
                 name: "Pastor Selina. K. Nzioka",
-                role: "Administrator",
+                role: "Women's Ministry",
                 image: "/About/581A1431.JPG",
                 bio: "",
               },
@@ -190,9 +202,21 @@ export default function AboutPage() {
                 bio: "",
               },
               {
+                name: "Pastor Robin",
+                role: "Prayers & Morning Glory",
+                image: "About/MorningGlory.jpeg",
+                bio: "",
+              },
+              {
                 name: "Pastor Paul Solomon",
                 role: "Praise and Worship",
                 image: "/About/Praise&Worship.jpeg",
+                bio: "",
+              },
+              {
+                name: "Omusuya",
+                role: "HBF Ministry",
+                image: "/About/KCQD6229.JPG",
                 bio: "",
               },
             ].map((leader, index) => (

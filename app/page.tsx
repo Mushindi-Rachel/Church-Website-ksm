@@ -20,9 +20,9 @@ const slides = [
   },
   {
     id: 2,
-    image: "/bmcca.jfif",
-    title: "Bishop Mark Care Center Academy",
-    description: "Providing quality Christian education for children of all ages",
+    image: "/school/school1(15).jpeg",
+    title: "Bishop Mark Care Center School",
+    description: "Empowering Children with Knowledge, Skills & Christian Values",
     buttonText: "Learn More",
     buttonLink: "/school",
   },

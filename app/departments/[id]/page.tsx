@@ -4,6 +4,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Users, Crown, CheckCircle } from "lucide-react"
 
 // Example dataset (move to DB or CMS later)
 const departmentDetails = {
@@ -110,10 +111,100 @@ const departmentDetails = {
         image: "/Departments/youths/mission.jpeg",
       },
     ],
-    meetings: ["Annual General Meeting"],
+  },
+  3: {
+  name: "Women’s Ministry",
+  heroImage: "/Departments/581A1446.JPG",
+  goal: [
+    "The Women’s Ministry is committed to empowering women spiritually, socially, and economically. We nurture women who are rooted in God’s Word, strong in prayer, and impactful in their families, church, and society. Through conferences, prayers, and fellowships, we provide mentorship and platforms for women to grow holistically."
+  ],
+  leadership: [
+    { role: "Patron", name: "Rev Joyce Kegohi" },
+    { role: "Women Pastor", name: "Pastor Selina Nzioka" },
+    { role: "Women Elder", name: "Eld. Catherine Ongira" },
+    { role: "Women Deaconess", name: "Ruth Ongoma" },
+    { role: "Women Chairperson", name: "Maryline Otieno" },
+  ],
+  subMinistries: [
+    {
+      title: "Special Ladies",
+      leader: "Deaconess Clementina Ogingo",
+      description:
+        "A ministry focusing on equipping and empowering women to walk in their God-given purpose with excellence.",
+      image: "/Departments/women/special-ladies.jpg",
+    },
+    {
+      title: "Young Mothers",
+      leader: "Deaconess Hellen Festus",
+      description:
+        "Dedicated to mentoring young mothers in faith, family, and practical life skills, ensuring they thrive spiritually and socially.",
+      image: "/Departments/women/young-mothers.jpg",
+    },
+  ],
+  activities: [
+    {
+      title: "Women of Great Influence Conference",
+      description:
+        "An annual conference that empowers and equips women for influence in the church, family, and society.",
+      image: "/Departments/women/conference.jpg",
+    },
+    {
+      title: "Corporate Monthly Prayers",
+      description:
+        "A monthly prayer gathering where women intercede for their families, the church, and the nation.",
+      image: "/Departments/women/prayers.jpg",
+    },
+    {
+      title: "Regional Fellowships",
+      description:
+        "Regular fellowships across regions to strengthen unity, mentorship, and spiritual growth among women.",
+      image: "/Departments/women/fellowship.jpg",
+    },
+  ],
+  meetings: [
+    "Monthly Planning Meeting",
+    "Quarterly Leadership Summit",
+    "Annual General Meeting",
+  ],
+},
+4: {
+    name: "Men’s Ministry",
+    heroImage: "/Departments/581A1401.JPG",
+    goal: [
+      "The Men’s Ministry seeks to empower men spiritually and practically, equipping them to lead in their families, church, and society. We provide opportunities for growth through prayers, fellowships, and active service in the work of God."
+    ],
+    leadership: [
+      { role: "Patron", name: "Bishop Mark Kegohi" },
+      { role: "Men Pastor", name: "Timothy Nzioka" },
+      { role: "Deacon", name: "Edward Oluoch" },
+      { role: "Chairman", name: "Dominic Osiche" },
+    ],
+    regions: [
+      { region: "Migosi", chairman: "Vincent Ongesa" },
+      { region: "Manyatta", chairman: "George Nyambare" },
+      { region: "Central/Milimani", chairman: "Isaiah Abidha" },
+      { region: "Nyamasaria", chairman: "Moses Bole" },
+      { region: "Nyalenda", chairman: "Edwin Wambogo" },
+    ],
+    activities: [
+      {
+        title: "Weekly Prayers",
+        description: "Every Monday from 5:30 PM in the church.",
+        image: "/Departments/men/prayers.jpg",
+      },
+      {
+        title: "Regional Fellowships",
+        description: "We meet at least twice a month in a brother’s house.",
+        image: "/Departments/men/fellowship.jpg",
+      },
+      {
+        title: "Support for Conferences & Missions",
+        description: "Men actively participate in supporting conferences and missions.",
+        image: "/Departments/men/missions.jpg",
+      },
+    ],
   },
 }
-
 export default function DepartmentDetail({ params }: { params: { id: string } }) {
   const department = departmentDetails[Number(params.id) as keyof typeof departmentDetails]
 
@@ -142,6 +233,7 @@ export default function DepartmentDetail({ params }: { params: { id: string } })
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
         >
           <h2 className="text-2xl font-bold center mb-4 text-center">Our Goal</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -153,21 +245,93 @@ export default function DepartmentDetail({ params }: { params: { id: string } })
       </section>
 
       {/* Leadership */}
-      <section className="container py-12 text-center">
-        <h2 className="text-2xl font-bold mb-6 text-center">Our Leadership</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {department.leadership.map((leader, i) => (
-            <Card key={i} className="shadow-md">
+<section className="container py-12 bg-muted/50 rounded-lg">
+  <div className="max-w-6xl mx-auto px-6">
+    <h2 className="text-3xl font-bold mb-12 text-center">Our Leadership</h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {department.leadership.map((leader, i) => {
+        const isPatron = leader.role.toLowerCase().includes("patron")
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <Card
+              className={`shadow-xl rounded-2xl overflow-hidden transition-transform hover:scale-105 ${
+                isPatron ? "bg-white" : "bg-white"
+              }`}
+            >
+              <div className="flex justify-center mt-6">
+                {isPatron ? (
+                  <Crown className="w-12 h-12 text-yellow-600" />
+                ) : (
+                  <Users className="w-10 h-10 text-blue-600" />
+                )}
+              </div>
               <CardHeader>
-                <CardTitle>{leader.role}</CardTitle>
+                <CardTitle
+                  className={`text-xl font-bold text-center ${
+                    isPatron ? "text-yellow-800" : "text-gray-800"
+                  }`}
+                >
+                  {leader.role}
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="font-medium">{leader.name}</p>
+                <p className="text-lg font-semibold text-center">
+                  {leader.name}
+                </p>
+                {isPatron && (
+                  <p className="text-sm text-muted-foreground text-center italic mt-2">
+                    Our guiding pillar and covering
+                  </p>
+                )}
               </CardContent>
             </Card>
-          ))}
-        </div>
-      </section>
+          </motion.div>
+        )
+      })}
+    </div>
+  </div>
+</section>
+
+
+      {/* Sub-ministries (Women’s Ministry only) */}
+      {department.subMinistries && (
+        <section className="container py-12">
+          <h2 className="text-2xl font-bold mb-8 text-center">
+            The Ladies Ministry is also composed of:
+          </h2>
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            {department.subMinistries.map((sub, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden shadow-lg hover:shadow-xl transition flex flex-col">
+                  <div className="relative h-48">
+                    <Image src={sub.image} alt={sub.title} fill className="object-cover" />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>{sub.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{sub.description}</p>
+                    <p className="mt-2 font-medium">Led by {sub.leader}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Services (if present) */}
       {department.services && (
@@ -198,6 +362,46 @@ export default function DepartmentDetail({ params }: { params: { id: string } })
           </div>
         </section>
       )}
+
+     {/* Regions Section (Only for Men’s Ministry) */}
+{department.regions && (
+  <section className="bg-white py-16 px-6">
+    <h2 className="text-3xl font-bold text-center mb-12">
+      Our {department.name} Regions
+    </h2>
+    <p className="text-gray-600 max-w-3xl mx-auto text-center mb-12">
+      The {department.name} is spread across vibrant regions, each led by a
+      dedicated chairman. These regional fellowships ensure that every member
+      stays connected, mentored, and actively involved in the work of God at
+      both local and church-wide levels.
+    </p>
+
+    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {department.regions.map((region, i) => (
+        <motion.div
+          key={i}
+          className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-transform"
+          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: i * 0.1 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex justify-center mb-4">
+            <Users className="w-12 h-12 text-blue-700" />
+          </div>
+          <h3 className="font-bold text-xl mb-2">{region.region}</h3>
+          <p className="text-gray-700">
+            <span className="font-semibold">Leader:</span> {region.chairman}
+          </p>
+          <p className="mt-3 text-sm italic text-gray-600">
+            Building strong brotherhood and faith in {region.region}.
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+)}
 
       {/* Activities */}
       <section className="container py-12 bg-muted/50 rounded-lg">

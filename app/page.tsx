@@ -42,8 +42,16 @@ const slides = [
     buttonText: "Learn More",
     buttonLink: "/tv",
   },
-  {
+  { 
     id: 5,
+      image: "/Home/IMG_E2997.JPG",
+      title: "Equator Pastoral Resort",
+      description: "Enjoy Zero Latitude Experience",
+      buttonText: "Learn More",
+      buttonLink: "https://equatorpastoralresort.com/",
+    },
+  {
+    id: 6,
     image: "/Departments/581A1348.JPG",
     title: "Sunday Service",
     description: "Experience the power of worship with our community",
@@ -51,7 +59,7 @@ const slides = [
     buttonLink: "/about#service-times",
   },
   {
-    id: 6,
+    id: 7,
     image: "/hbf-background.png",
     title: "Bible Study",
     description: "Deepen your understanding of God's word",

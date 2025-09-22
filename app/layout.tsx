@@ -8,16 +8,48 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: "jcc Kisumu",
-    template: "%s | JCC Kisumu"
+    default: "JCC Kisumu",
+    template: "%s | JCC Kisumu",
   },
-  description: "Official website of Jesus Celebration Center - Kisumu. Stay updated with sermons, events, and ministries.",
+  description:
+    "Welcome to JCC Kisumu - Jesus Celebration Centre, a vibrant church in Kisumu where lives are transformed through worship, fellowship, and the Word of God. Stay updated with sermons, ministries, and upcoming events.",
+  keywords: [
+    "JCC Kisumu",
+    "Jesus Celebration Centre Kisumu",
+    "Church in Kisumu",
+    "Kisumu ministries",
+    "Kisumu worship services",
+    "Pentecostal church Kisumu",
+  ],
+  openGraph: {
+    title: "JCC Kisumu - Jesus Celebration Centre",
+    description:
+      "Discover JCC Kisumu - The Light House of Africa. Join us for powerful worship, inspiring sermons, and life-changing ministries.",
+    url: "https://jcckisumu.com",
+    siteName: "JCC Kisumu",
+    images: [
+      {
+        url: "/jcc logo.png",
+        width: 1200,
+        height: 630,
+        alt: "JCC Kisumu Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JCC Kisumu - Jesus Celebration Centre",
+    description:
+      "The official website of JCC Kisumu. Get sermons, events, and ministry updates.",
+    images: ["/jcc logo.png"],
+  },
   icons: {
-      icon: "/jcc logo.png", 
-    },
-
+    icon: "/jcc logo.png",
+  },
   }
 export default function RootLayout({
   children,

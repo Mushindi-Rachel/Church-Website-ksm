@@ -15,29 +15,38 @@ export const metadata: Metadata = {
   },
   description:
     "Welcome to JCC Kisumu - Jesus Celebration Centre, a vibrant church in Kisumu where lives are transformed through worship, fellowship, and the Word of God. Stay updated with sermons, ministries, and upcoming events.",
+  keywords: [
+    "JCC Kisumu",
+    "Jesus Celebration Centre Kisumu",
+    "Church in Kisumu",
+    "Kisumu ministries",
+    "Kisumu worship services",
+    "Pentecostal church Kisumu",
+  ],
+  authors: [{ name: "Jesus Celebration Centre Kisumu" }],
+  robots: "index, follow",
   icons: {
-    icon: "/jcc logo.png",
+    icon: "/jcc-logo.png",
+  },
+  openGraph: {
+    title: "JCC Kisumu | Jesus Celebration Centre",
+    description:
+      "The lighthouse of Africa. Join us for vibrant worship, weekly programs, youth services, and community impact in Kisumu, Kenya.",
+    url: "https://jcckisumu.com",
+    siteName: "JCC Kisumu",
+    images: ["/jcc-logo.png"],
+    locale: "en_US",
+    type: "website",
   },
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <title>JCC Kisumu | Jesus Celebration Center</title>
-<meta name="description" content="Welcome to JCC Kisumu - The lighthouse of Africa. Join us for vibrant worship, weekly programs, youth services, and community impact in Kisumu, Kenya." />
-        <meta
-          name="keywords"
-          content="JCC Kisumu, Jesus Celebration Centre Kisumu, Church in Kisumu, Kisumu ministries, Kisumu worship services, Pentecostal church Kisumu"
-        />
-        {/* ✅ Optional: author & robots */}
-        <meta name="author" content="Jesus Celebration Centre Kisumu" />
-        <meta name="robots" content="index, follow" />
-      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"

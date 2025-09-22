@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/jcc logo.png"
+            src="/jcc-logo.png"
             alt="Church Logo"
             width={40}
             height={40}

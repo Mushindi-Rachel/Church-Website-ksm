@@ -28,7 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* ✅ Proper meta keywords */}
+        <title>JCC Kisumu | Jesus Celebration Center</title>
+<meta name="description" content="Welcome to JCC Kisumu - The lighthouse of Africa. Join us for vibrant worship, weekly programs, youth services, and community impact in Kisumu, Kenya." />
         <meta
           name="keywords"
           content="JCC Kisumu, Jesus Celebration Centre Kisumu, Church in Kisumu, Kisumu ministries, Kisumu worship services, Pentecostal church Kisumu"

@@ -8,17 +8,18 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: "jcc Kisumu",
-    template: "%s | JCC Kisumu"
+    default: "JCC Kisumu",
+    template: "%s | JCC Kisumu",
   },
-  description: "Official website of Jesus Celebration Center - Kisumu. Stay updated with sermons, events, and ministries.",
+  description:
+    "Welcome to JCC Kisumu - Jesus Celebration Centre, a vibrant church in Kisumu where lives are transformed through worship, fellowship, and the Word of God. Stay updated with sermons, ministries, and upcoming events.",
   icons: {
-      icon: "/jcc logo.png", 
-    },
+    icon: "/jcc logo.png",
+  },
+}
 
-  }
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,8 +27,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* ✅ Proper meta keywords */}
+        <meta
+          name="keywords"
+          content="JCC Kisumu, Jesus Celebration Centre Kisumu, Church in Kisumu, Kisumu ministries, Kisumu worship services, Pentecostal church Kisumu"
+        />
+        {/* ✅ Optional: author & robots */}
+        <meta name="author" content="Jesus Celebration Centre Kisumu" />
+        <meta name="robots" content="index, follow" />
+      </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>

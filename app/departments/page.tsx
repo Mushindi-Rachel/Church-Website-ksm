@@ -240,12 +240,12 @@ export default function DepartmentsPage() {
           <h2 className="text-3xl font-bold text-center mb-12">Department Leadership Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Pastor Pamela Otieno", role: "Children's Ministry Director", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Pastor Pamela Otieno", role: "Children's Ministry Director", image: "/About/children.jpeg" },
               { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/Departments/581A1409.JPG"},
               { name: "Pastor Selina Nzioka", role: "Women Ministry Director", image: "/About/581A1431.JPG" },
               { name: "Pastor Sophie", role: "Outreach ", image: "/placeholder.svg?height=300&width=300" },
               { name: "Pastor Catherine", role: "Kingdom Builders Director", image: "/About/581A1424.JPG"},
-              { name: "Pastor Omusuya", role: "Men's Ministry Director", image: "/About/KCQD6229.JPG" },
+              { name: "Pastor Omusuya", role: "Men's Ministry Director", image: "/About/welfare.jpeg",},
               // { name: "", role: "Women's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },
               // { name: "Robert Johnson", role: "Hospitality Team Leader", image: "/placeholder.svg?height=300&width=300" },
             ].map((leader, index) => (

@@ -216,7 +216,7 @@ export default function AboutPage() {
               {
                 name: "Omusuya",
                 role: "HBF Ministry",
-                image: "/About/KCQD6229.JPG",
+                image: "/About/welfare.jpeg",
                 bio: "",
               },
             ].map((leader, index) => (

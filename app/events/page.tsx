@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar, Clock, MapPin } from "lucide-react"
+import GiveModal from "@/components/givemodal"
 
 // Sample events data
 const upcomingEvents = [
@@ -54,6 +55,8 @@ const pastEvents = [
 
 export default function EventsPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [open, setOpen] = useState(false)
+
 
   // Close modal on Escape and lock scrolling when modal open
   useEffect(() => {
@@ -119,7 +122,7 @@ export default function EventsPage() {
                   <Calendar className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium">Date</p>
-                    <p className="text-muted-foreground">October, 2025</p>
+                    <p className="text-muted-foreground">October 5th - 10th, 2025</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -142,10 +145,10 @@ export default function EventsPage() {
               </p>
               <div className="flex gap-4">
                 <Button asChild>
-                  <Link href="#">Register</Link>
+                  <Link href="https://docs.google.com/forms/d/e/1FAIpQLScR4DmO7d0ZnvbvBoy0szQsz0gpz3WoyFvoAHY-1FJDePmZkg/viewform?usp=dialog">Register</Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="#">Add to Calendar</Link>
+                  <Link href="#">View Magazine</Link>
                 </Button>
               </div>
             </motion.div>
@@ -205,11 +208,19 @@ export default function EventsPage() {
                         <p className="text-muted-foreground line-clamp-3">{event.description}</p>
                       </CardContent>
                       <CardFooter className="mt-auto">
-                        <Button asChild variant="outline" className="w-full">
-                          <Link href={`/events/${event.id}`}>Partner with Us</Link>
-                        </Button>
+                        <Button 
+                            onClick={() => setOpen(true)} 
+                            variant="outline" 
+                            className="w-full mb-2"
+                          >
+                            Partner With Us
+                          </Button>
+
+                          {/* ✅ Reuse the Give Modal */}
+                          <GiveModal open={open} onOpenChange={setOpen} />
+
                         <Button asChild className="w-full">
-                          <Link href={`https://youthablaze2025.netlify.app/`}>Register Now!</Link>
+                          <Link href={`https://docs.google.com/forms/d/e/1FAIpQLScR4DmO7d0ZnvbvBoy0szQsz0gpz3WoyFvoAHY-1FJDePmZkg/viewform?usp=dialog`}>Register Now!</Link>
                         </Button>
                       </CardFooter>
                     </Card>

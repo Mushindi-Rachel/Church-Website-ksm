@@ -56,6 +56,10 @@ const pastEvents = [
 export default function EventsPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [open, setOpen] = useState(false)
+  /* ------------------- State ------------------- */
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isGiveOpen, setIsGiveOpen] = useState(false);
+
 
 
   // Close modal on Escape and lock scrolling when modal open
@@ -208,17 +212,8 @@ export default function EventsPage() {
                         <p className="text-muted-foreground line-clamp-3">{event.description}</p>
                       </CardContent>
                       <CardFooter className="mt-auto">
-                        <Button 
-                            onClick={() => setOpen(true)} 
-                            variant="outline" 
-                            className="w-full mb-2"
-                          >
-                            Partner With Us
-                          </Button>
-
-                          {/* ✅ Reuse the Give Modal */}
-                          <GiveModal open={open} onOpenChange={setOpen} />
-
+                        <Button variant="outline" onClick={() => setIsGiveOpen(true)}>Partner With Us</Button>
+                              <GiveModal isOpen={isGiveOpen} onClose={() => setIsGiveOpen(false)} />
                         <Button asChild className="w-full">
                           <Link href={`https://docs.google.com/forms/d/e/1FAIpQLScR4DmO7d0ZnvbvBoy0szQsz0gpz3WoyFvoAHY-1FJDePmZkg/viewform?usp=dialog`}>Register Now!</Link>
                         </Button>

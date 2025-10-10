@@ -18,7 +18,7 @@ const departmentDetails = {
       { role: "Patron", name: "Reverend Joyce Kegohi" },
       { role: "Pastor", name: "Pamela Otieno" },
       { role: "Deacon", name: "Elizabeth Kachero" },
-      { role: "Coordinator", name: "Bertha Ayore" },
+      { role: "Coordinator", name: "Bertha Ayoro" },
     ],
     groups: ["PP1 & PP2", "Grade 1 & 2", "Grade 3 & 4", "Grade 5 & 6", "Grade 7–9", "Form 1–4"],
     activities: [
@@ -66,17 +66,17 @@ const departmentDetails = {
       {
         title: "Prayer Meeting",
         description: "Every Monday, 5:30 PM to 6:30 PM.",
-        image: "/Departments/camp.jpg",
+        image: "/Departments/youths/youth-activities (2).jpeg",
       },
       {
         title: "Mini-Kesha",
         description: "Every Tuesday from 6:00 PM to 11:00 PM.",
-        image: "/Departments/summit.jpg",
+        image: "/Departments/youths/youth-activities (3).jpeg",
       },
       {
         title: "Online Bible Study",
         description: "Every Thursday from 9:00 PM to 10:00 PM.",
-        image: "/Departments/summit.jpg",
+        image: "/Departments/youths/youth-activities (1).jpeg",
       },
     ],
     activities: [
@@ -98,7 +98,7 @@ const departmentDetails = {
       {
         title: "Youth Praise Night",
         description: ".",
-        image: "/Departments/youths/dinner.jpeg",
+        image: "/Departments/youths/youth-activities (4).jpeg",
       },
       {
         title: "Youth Ablaze",
@@ -131,14 +131,14 @@ const departmentDetails = {
       leader: "Deaconess Clementina Ogingo",
       description:
         "A ministry focusing on equipping and empowering women to walk in their God-given purpose with excellence.",
-      image: "/Departments/women/special-ladies.jpg",
+      image: "/Departments/special-ladies.png",
     },
     {
       title: "Young Mothers",
       leader: "Deaconess Hellen Festus",
       description:
         "Dedicated to mentoring young mothers in faith, family, and practical life skills, ensuring they thrive spiritually and socially.",
-      image: "/Departments/women/young-mothers.jpg",
+      image: "/Departments/women (4).jpeg",
     },
   ],
   activities: [
@@ -152,13 +152,13 @@ const departmentDetails = {
       title: "Corporate Monthly Prayers",
       description:
         "A monthly prayer gathering where women intercede for their families, the church, and the nation.",
-      image: "/Departments/women/prayers.jpg",
+      image: "/Departments/women (1).jpeg",
     },
     {
       title: "Regional Fellowships",
       description:
         "Regular fellowships across regions to strengthen unity, mentorship, and spiritual growth among women.",
-      image: "/Departments/women/fellowship.jpg",
+      image: "/Departments/women (7).jpeg",
     },
   ],
   meetings: [
@@ -190,17 +190,17 @@ const departmentDetails = {
       {
         title: "Weekly Prayers",
         description: "Every Monday from 5:30 PM in the church.",
-        image: "/Departments/men/prayers.jpg",
+        image: "/Departments/men-prayer.png",
       },
       {
         title: "Regional Fellowships",
         description: "We meet at least twice a month in a brother’s house.",
-        image: "/Departments/men/fellowship.jpg",
+        image: "/Departments/men.jpeg",
       },
       {
         title: "Support for Conferences & Missions",
         description: "Men actively participate in supporting conferences and missions.",
-        image: "/Departments/men/missions.jpg",
+        image: "/Departments/men-min.jpeg",
       },
     ],
   },

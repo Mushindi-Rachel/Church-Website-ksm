@@ -162,8 +162,11 @@ export default function DepartmentsPage() {
                   </CardContent>
                   <CardFooter className="mt-auto">
                     <Button asChild className="w-full">
-                      <Link href={`/departments/${department.id}`}>Learn More</Link>
-                    </Button>
+  <Link href={department.id === 8 ? `/departments/welfare` : `/departments/${department.id}`}>
+    Learn More
+  </Link>
+</Button>
+
                   </CardFooter>
                 </Card>
               </motion.div>

@@ -26,16 +26,16 @@ const slides = [
     buttonText: "Learn More",
     buttonLink: "/school",
   },
+
+  //   id: 3,
+  //   image: "/bishopMK.jfif",
+  //   title: "Bishop Mark Kegohi Foundation",
+  //   description: "Supporting community initiatives and charitable projects",
+  //   buttonText: "Learn More",
+  //   buttonLink: "/foundation",
+  // },
   {
     id: 3,
-    image: "/bishopMK.jfif",
-    title: "Bishop Mark Kegohi Foundation",
-    description: "Supporting community initiatives and charitable projects",
-    buttonText: "Learn More",
-    buttonLink: "/foundation",
-  },
-  {
-    id: 4,
     image: "/Home/581A1333.JPG",
     title: "RVTV",
     description: "Spreading the Gospel through media and broadcasting",
@@ -43,7 +43,7 @@ const slides = [
     buttonLink: "/tv",
   },
   { 
-    id: 5,
+    id: 4,
       image: "/Home/IMG_E2997.JPG",
       title: "Equator Pastoral Resort",
       description: "Enjoy Zero Latitude Experience",
@@ -51,7 +51,7 @@ const slides = [
       buttonLink: "https://equatorpastoralresort.com/",
     },
   {
-    id: 6,
+    id: 5,
     image: "/Departments/581A1348.JPG",
     title: "Sunday Service",
     description: "Experience the power of worship with our community",
@@ -59,7 +59,7 @@ const slides = [
     buttonLink: "/about#service-times",
   },
   {
-    id: 7,
+    id: 6,
     image: "/hbf-background.png",
     title: "Bible Study",
     description: "Deepen your understanding of God's word",

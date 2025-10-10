@@ -173,7 +173,7 @@ export default function AboutPage() {
             {[
               {
                 name: "Bishop Dr. Mark Kegohi",
-                role: "Overseer",
+                role: "Apostle",
                 image: "/About/IMG_0327.JPG",
                 bio: ".",
               },

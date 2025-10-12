@@ -244,7 +244,7 @@ export default function DepartmentsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { name: "Pastor Pamela Otieno", role: "Children's Ministry Director", image: "/About/children.jpeg" },
-              { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/Departments/581A1409.JPG"},
+              { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/About/e2M7A9948.jpg"},
               { name: "Pastor Selina Nzioka", role: "Women Ministry Director", image: "/About/581A1431.JPG" },
               { name: "Pastor Sophie", role: "Outreach ", image: "/placeholder.svg?height=300&width=300" },
               { name: "Pastor Catherine", role: "Kingdom Builders Director", image: "/About/581A1424.JPG"},

@@ -192,7 +192,7 @@ export default function AboutPage() {
               {
                 name: "Pastor Luke Obeto",
                 role: "Youth Pastor",
-                image: "/About/581A1409.JPG",
+                image: "/About/e2M7A9948.jpg",
                 bio: "",
               },
               {
@@ -204,7 +204,7 @@ export default function AboutPage() {
               {
                 name: "Pastor Robin",
                 role: "Prayers & Morning Glory",
-                image: "About/MorningGlory.jpeg",
+                image: "/About/WhatsApp Image 2025-09-13 at 07.46.40.jpeg",
                 bio: "",
               },
               {

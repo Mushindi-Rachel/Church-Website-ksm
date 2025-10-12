@@ -146,7 +146,7 @@ const departmentDetails = {
       title: "Women of Great Influence Conference",
       description:
         "An annual conference that empowers and equips women for influence in the church, family, and society.",
-      image: "/Departments/women/conference.jpg",
+      image: "/Departments/1000071720.jpg",
     },
     {
       title: "Corporate Monthly Prayers",

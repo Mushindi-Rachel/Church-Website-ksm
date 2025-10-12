@@ -214,7 +214,7 @@ export default function AboutPage() {
                 bio: "",
               },
               {
-                name: "Omusuya",
+                name: "Pastor Omusuya",
                 role: "HBF Ministry",
                 image: "/About/welfare.jpeg",
                 bio: "",

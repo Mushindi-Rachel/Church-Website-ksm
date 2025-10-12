@@ -62,7 +62,7 @@ const departments = [
     id: 5,
     name: "Prayer Ministry",
     description: "Interceding for the needs of the church, community, and world through regular prayer gatherings.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/Departments/581A1752.JPG",
     leader: "Pastor Robin",
     meetingTimes: "Mondays at 5:30 PM",
   },
@@ -146,7 +146,7 @@ export default function DepartmentsPage() {
                       src={department.image || "/placeholder.svg"}
                       alt={department.name}
                       fill
-                      className="object-contain"
+                      className="object-cover"
                     />
                   </div>
                   <CardHeader>

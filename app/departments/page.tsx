@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
-// Sample departments data
+
 const departments = [
   {
     id: 1,
@@ -184,7 +184,7 @@ export default function DepartmentsPage() {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="text-3xl font-bold mb-6 text-center md:text-left"
-    ><h2 className="text-3xl font-bold text-center mb-12">Volunteer With Us</h2>
+    >Volunteer With Us
     </motion.h2>
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <motion.div

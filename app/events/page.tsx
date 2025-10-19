@@ -21,6 +21,7 @@ const upcomingEvents = [
     location: "Kipsigis High School - Kericho",
     image: "/Departments/children/ICE.jpeg",
     description: "",
+    registrationLink: "https://icecamp2025.netlify.app/",
   },
   
   {
@@ -31,6 +32,7 @@ const upcomingEvents = [
     location: "JCC Kisumu Sanctuary",
     image: "/ABLAZE.png",
     description: "",
+    registrationLink: "https://icecamp2025.netlify.app/",
   },
 ]
 
@@ -43,6 +45,7 @@ const pastEvents = [
     location: "JCC Kisumu Sanctuary",
     image: "/30thAnniversary.jpeg",
     description: "",
+    detailsLink: "/events/30th-anniversary",
   },
 
   {
@@ -53,6 +56,7 @@ const pastEvents = [
     location: "JCC Kisumu Sanctuary",
     image: "/wogi.jfif?height=300&width=500",
     description: "",
+    detailsLink: "/events/30th-anniversary",
   },
   {
     id: 8,
@@ -62,6 +66,7 @@ const pastEvents = [
     location: "JCC Kisumu Sanctuary",
     image: "/mtc2025?height=300&width=500",
     description: "A 5 day conference of experiencing God's presence.",
+    detailsLink: "/events/30th-anniversary",
   },
 ]
 
@@ -164,7 +169,7 @@ export default function EventsPage() {
                   <Link href="https://docs.google.com/forms/d/e/1FAIpQLScR4DmO7d0ZnvbvBoy0szQsz0gpz3WoyFvoAHY-1FJDePmZkg/viewform?usp=dialog">Register</Link>
                 </Button> */}
                 <Button asChild variant="outline">
-                  <Link href="#">View Magazine</Link>
+                   <Link href="https://drive.google.com/file/d/1uZDTcvNCDH_g_64oYlTbd2ISF9GTMR3g/view">View Magazine</Link>
                 </Button>
               </div>
             </motion.div>
@@ -227,7 +232,7 @@ export default function EventsPage() {
                         <Button variant="outline" onClick={() => setIsGiveOpen(true)}>Partner With Us</Button>
                               <GiveModal isOpen={isGiveOpen} onClose={() => setIsGiveOpen(false)} />
                         <Button asChild className="w-full">
-                          <Link href={`https://docs.google.com/forms/d/e/1FAIpQLScR4DmO7d0ZnvbvBoy0szQsz0gpz3WoyFvoAHY-1FJDePmZkg/viewform?usp=dialog`}>Register Now!</Link>
+                          <Link href={event.registrationLink}>Register Now!</Link>
                         </Button>
                       </CardFooter>
                     </Card>
@@ -280,7 +285,7 @@ export default function EventsPage() {
                       </CardContent>
                       <CardFooter className="mt-auto">
                         <Button asChild variant="outline" className="w-full">
-                          <Link href={`/events/${event.id}`}>View Details</Link>
+                          <Link href={event.detailsLink}>View Details</Link>
                         </Button>
                       </CardFooter>
                     </Card>

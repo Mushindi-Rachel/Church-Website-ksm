@@ -12,15 +12,17 @@ import GiveModal from "@/components/givemodal"
 
 // Sample events data
 const upcomingEvents = [
+
   {
     id: 1,
-    title: "30th Anniversary",
-    date: "October 05, 2025 - October 10, 2025",
+    title: "INternational Children Empowerment Camp",
+    date: "December 07 , 2025 - December 13 , 2025",
     time: "Whole Day",
-    location: "JCC Kisumu Sanctuary",
-    image: "/30thAnniversary.jpeg",
+    location: "Kipsigis High School - Kericho",
+    image: "/Departments/children/ICE.jpeg",
     description: "",
   },
+  
   {
     id: 2,
     title: "Youth Ablaze",
@@ -34,22 +36,32 @@ const upcomingEvents = [
 
 const pastEvents = [
   {
-    id: 7,
-    title: "Mountain Takers Conference",
-    date: "April , 2025",
-    time: "All Day",
+    id: 6,
+    title: "30th Anniversary",
+    date: "October 05, 2025 - October 10, 2025",
+    time: "Whole Day",
     location: "JCC Kisumu Sanctuary",
-    image: "/mtc2025?height=300&width=500",
-    description: "A 5 day conference of experiencing God's presence.",
+    image: "/30thAnniversary.jpeg",
+    description: "",
   },
+
   {
-    id: 8,
+    id: 7,
     title: "Women of Great Influence",
     date: "August 13, 2025 - August 15, 2025",
     time: "All Day",
     location: "JCC Kisumu Sanctuary",
     image: "/wogi.jfif?height=300&width=500",
     description: "",
+  },
+  {
+    id: 8,
+    title: "Mountain Takers Conference",
+    date: "April , 2025",
+    time: "All Day",
+    location: "JCC Kisumu Sanctuary",
+    image: "/mtc2025?height=300&width=500",
+    description: "A 5 day conference of experiencing God's presence.",
   },
 ]
 

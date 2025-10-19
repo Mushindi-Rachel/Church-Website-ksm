@@ -246,7 +246,7 @@ export default function DepartmentsPage() {
               { name: "Pastor Pamela Otieno", role: "Children's Ministry Director", image: "/About/children.jpeg" },
               { name: "Pastor Luke Obeto", role: "Youth Ministry Director", image: "/About/e2M7A9948.jpg"},
               { name: "Pastor Selina Nzioka", role: "Women Ministry Director", image: "/About/581A1431.JPG" },
-              { name: "Pastor Sophie", role: "Outreach ", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Pastor Sophie", role: "Outreach ", image: "/About/IMG_1666.JPG"},
               { name: "Pastor Catherine", role: "Kingdom Builders Director", image: "/About/581A1424.JPG"},
               { name: "Pastor Omusuya", role: "Men's Ministry Director", image: "/About/welfare.jpeg",},
               // { name: "", role: "Women's Ministry Leader", image: "/placeholder.svg?height=300&width=300" },

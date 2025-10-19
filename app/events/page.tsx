@@ -32,7 +32,7 @@ const upcomingEvents = [
     location: "JCC Kisumu Sanctuary",
     image: "/ABLAZE.png",
     description: "",
-    registrationLink: "https://icecamp2025.netlify.app/",
+    registrationLink: "https://youthablaze2025.netlify.app/",
   },
 ]
 

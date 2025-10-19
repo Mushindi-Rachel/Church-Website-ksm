@@ -15,7 +15,7 @@ const upcomingEvents = [
 
   {
     id: 1,
-    title: "INternational Children Empowerment Camp",
+    title: "International Children Empowerment Camp",
     date: "December 07 , 2025 - December 13 , 2025",
     time: "Whole Day",
     location: "Kipsigis High School - Kericho",
@@ -25,7 +25,7 @@ const upcomingEvents = [
   
   {
     id: 2,
-    title: "Youth Ablaze",
+    title: "Youth Ablaze Conference",
     date: "December 15 , 2025 - December 20 , 2025",
     time: "Whole Day",
     location: "JCC Kisumu Sanctuary",
@@ -160,9 +160,9 @@ export default function EventsPage() {
                 This is a special invitation to all sons, daughters and friends whose lives and families have been impacted by this ministry since October 1995. It's time to give glory to God, Purpose to join us in thanksgiving!
               </p>
               <div className="flex gap-4">
-                <Button asChild>
+                {/* <Button asChild>
                   <Link href="https://docs.google.com/forms/d/e/1FAIpQLScR4DmO7d0ZnvbvBoy0szQsz0gpz3WoyFvoAHY-1FJDePmZkg/viewform?usp=dialog">Register</Link>
-                </Button>
+                </Button> */}
                 <Button asChild variant="outline">
                   <Link href="#">View Magazine</Link>
                 </Button>

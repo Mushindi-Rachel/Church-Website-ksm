@@ -22,8 +22,8 @@ interface GiveModalProps {
 const offerings: Offering[] = [
   {
     name: "Offerings/Tithe",
-    paybill: "247247",
-    account: "599058",
+    paybill: "599058",
+    account: "specify your giving, eg. Tithe / Offering",
     description: "Giving to support church operations",
     // qrCode: "/qr-placeholder.svg",
   },

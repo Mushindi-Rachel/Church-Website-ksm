@@ -1,5 +1,5 @@
 "use client"
-
+import { useMemo } from "react";
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
@@ -10,13 +10,27 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar, Clock, MapPin } from "lucide-react"
 import GiveModal from "@/components/givemodal"
 
+type EventItem = {
+  id: number
+  title: string
+  startDate: string
+  endDate: string
+  time: string
+  location: string
+  image: string
+  description?: string
+  registrationLink?: string
+  detailsLink?: string
+}
+
 // Sample events data
-const upcomingEvents = [
+const events: EventItem[] = [
 
   {
     id: 1,
     title: "International Children Empowerment Camp",
-    date: "December 07 , 2025 - December 13 , 2025",
+    startDate: "2025-12-07",
+    endDate: "2025-12-13",
     time: "Whole Day",
     location: "Kipsigis High School - Kericho",
     image: "/Departments/children/ICE.jpeg",
@@ -27,47 +41,52 @@ const upcomingEvents = [
   {
     id: 2,
     title: "Youth Ablaze Conference",
-    date: "December 15 , 2025 - December 20 , 2025",
+    startDate: "2025-12-14",
+    endDate: "2025-12-18",
     time: "Whole Day",
     location: "JCC Kisumu Sanctuary",
     image: "/ABLAZE.png",
     description: "",
     registrationLink: "https://youthablaze2025.netlify.app/",
   },
-]
 
-const pastEvents = [
-  {
-    id: 6,
-    title: "30th Anniversary",
-    date: "October 05, 2025 - October 10, 2025",
-    time: "Whole Day",
-    location: "JCC Kisumu Sanctuary",
-    image: "/30thAnniversary.jpeg",
-    description: "",
-    detailsLink: "/events/30th-anniversary",
-  },
+  // {
+  //   id: 6,
+  //   title: "31st Anniversary",
+  //   startDate: "2026-10-07",
+  //   endDate: "2026-10-13",
+  //   time: "Whole Day",
+  //   location: "JCC Kisumu Sanctuary",
+  //   image: "/30thAnniversary.jpeg",
+  //   description: "",
+  //   registrationLink: "https://icecamp2025.netlify.app/",
+  //   detailsLink: "https://icecamp2025.netlify.app/",
+  // },
 
-  {
-    id: 7,
-    title: "Women of Great Influence",
-    date: "August 13, 2025 - August 15, 2025",
-    time: "All Day",
-    location: "JCC Kisumu Sanctuary",
-    image: "/wogi.jfif?height=300&width=500",
-    description: "",
-    detailsLink: "/events/30th-anniversary",
-  },
-  {
-    id: 8,
-    title: "Mountain Takers Conference",
-    date: "April , 2025",
-    time: "All Day",
-    location: "JCC Kisumu Sanctuary",
-    image: "/mtc2025?height=300&width=500",
-    description: "A 5 day conference of experiencing God's presence.",
-    detailsLink: "/events/30th-anniversary",
-  },
+  // {
+  //   id: 7,
+  //   title: "Women of Great Influence",
+  //   startDate: "2026-08-07",
+  //   endDate: "2026-08-13",
+  //   time: "All Day",
+  //   location: "JCC Kisumu Sanctuary",
+  //   image: "/wogi.jfif?height=300&width=500",
+  //   description: "",
+  //   registrationLink: "https://icecamp2025.netlify.app/",
+  //   detailsLink: "https://icecamp2025.netlify.app/",
+  // },
+  // {
+  //   id: 8,
+  //   title: "Mountain Takers Conference",
+  //   startDate: "2026-04-07",
+  //   endDate: "2026-04-13",
+  //   time: "All Day",
+  //   location: "JCC Kisumu Sanctuary",
+  //   image: "/mtc2025?height=300&width=500",
+  //   description: "A 5 day conference of experiencing God's presence.",
+  //   registrationLink: "https://icecamp2025.netlify.app/",
+  //   detailsLink: "https://icecamp2025.netlify.app/",
+  // },
 ]
 
 export default function EventsPage() {
@@ -76,6 +95,31 @@ export default function EventsPage() {
   /* ------------------- State ------------------- */
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isGiveOpen, setIsGiveOpen] = useState(false);
+
+  const today = new Date()
+  
+
+  //AUTO-SPLIT EVENTS
+  const { upcomingEvents, pastEvents } = useMemo(() => {
+  const upcoming: EventItem[] = []
+  const past: EventItem[] = []
+
+  events.forEach((event) => {
+    const end = new Date(event.endDate)
+    end >= today ? upcoming.push(event) : past.push(event)
+  })
+  // Sort upcoming events by startDate ascending
+  upcoming.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+
+  // Sort past events by startDate descending (most recent first)
+  past.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+
+
+  return {
+    upcomingEvents: upcoming,
+    pastEvents: past,
+  }
+}, [events, today])
 
 
 
@@ -142,8 +186,8 @@ export default function EventsPage() {
                 <div className="flex items-start gap-3">
                   <Calendar className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-medium">Date</p>
-                    <p className="text-muted-foreground">October 5th - 10th, 2025</p>
+                    {/* <p className="font-medium">Date</p>
+                    <p className="text-muted-foreground">October 7th - 10th, 2026</p> */}
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -198,8 +242,17 @@ export default function EventsPage() {
                 transition={{ duration: 0.8, staggerChildren: 0.2 }}
                 viewport={{ once: true }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              >
-                {upcomingEvents.map((event) => (
+              > {upcomingEvents.length === 0 ? (
+                  <div className="col-span-full text-center py-20">
+                    <h3 className="text-2xl font-bold mb-2">
+                      No Upcoming Events
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Please check back later for new events.
+                    </p>
+                  </div>
+                ) : (
+                upcomingEvents.map((event) => (
                   <motion.div key={event.id} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
                     <Card className="overflow-hidden flex flex-col">
                       <div
@@ -208,6 +261,8 @@ export default function EventsPage() {
                         role="button"
                         aria-label={`Open flyer for ${event.title}`}
                       >
+
+
                         <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-contain" />
                       </div>
                       <CardHeader>
@@ -231,13 +286,17 @@ export default function EventsPage() {
                       <CardFooter className="mt-auto">
                         <Button variant="outline" onClick={() => setIsGiveOpen(true)}>Partner With Us</Button>
                               <GiveModal isOpen={isGiveOpen} onClose={() => setIsGiveOpen(false)} />
-                        <Button asChild className="w-full">
-                          <Link href={event.registrationLink}>Register Now!</Link>
-                        </Button>
+                        {event.registrationLink && (
+  <Button asChild className="w-full">
+    <Link href={event.registrationLink} target="_blank" rel="noopener noreferrer">
+      Register Now!
+    </Link>
+  </Button>
+)}
                       </CardFooter>
                     </Card>
                   </motion.div>
-                ))}
+                )))}
               </motion.div>
             </TabsContent>
 
@@ -284,9 +343,12 @@ export default function EventsPage() {
                         <p className="text-muted-foreground line-clamp-3">{event.description}</p>
                       </CardContent>
                       <CardFooter className="mt-auto">
-                        <Button asChild variant="outline" className="w-full">
-                          <Link href={event.detailsLink}>View Details</Link>
-                        </Button>
+                        {event.detailsLink && (
+  <Button asChild variant="outline" className="w-full">
+    <Link href={event.detailsLink} target="_blank" rel="noopener noreferrer">View Details</Link>
+  </Button>
+)}
+
                       </CardFooter>
                     </Card>
                   </motion.div>
@@ -381,5 +443,6 @@ export default function EventsPage() {
         </div>
       )}
     </div>
+    
   )
 }

@@ -283,7 +283,7 @@ export default function EventsPage() {
                       <CardContent className="space-y-4">
                         <div className="flex items-start gap-3">
                           <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                          <span>{event.date}</span>
+                          <span>{event.startDate} to {event.endDate}</span>
                         </div>
                         <div className="flex items-start gap-3">
                           <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />

@@ -50,6 +50,18 @@ const events: EventItem[] = [
     registrationLink: "https://youthablaze2025.netlify.app/",
   },
 
+   {
+    id: 2,
+    title: "Kisumu Big Crusade",
+    startDate: "2026-02-19",
+    endDate: "2026-02-22",
+    time: "From 4:00 pm",
+    location: "Sports Ground Kisumu",
+    image: "/Events/crusade_poster.jpeg",
+    description: "",
+    registrationLink: "",
+  },
+
   // {
   //   id: 6,
   //   title: "31st Anniversary",

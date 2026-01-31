@@ -42,6 +42,13 @@ const offerings: Offering[] = [
     // qrCode: "/qr-placeholder.svg",
   },
   {
+    name: "Kisumu Big Crusade",
+    paybill: "247247",
+    account: "628870",
+    description: "In support of our upcoming big crusade with papa Lai",
+    // qrCode: "/qr-placeholder.svg",
+  },
+  {
     name: "30th Anniversary",
     paybill: "247247",
     account: "166990",

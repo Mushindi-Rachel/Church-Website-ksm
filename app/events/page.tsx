@@ -87,18 +87,18 @@ const events: EventItem[] = [
   //   registrationLink: "https://icecamp2025.netlify.app/",
   //   detailsLink: "https://icecamp2025.netlify.app/",
   // },
-  // {
-  //   id: 8,
-  //   title: "Mountain Takers Conference",
-  //   startDate: "2026-04-07",
-  //   endDate: "2026-04-13",
-  //   time: "All Day",
-  //   location: "JCC Kisumu Sanctuary",
-  //   image: "/mtc2025?height=300&width=500",
-  //   description: "A 5 day conference of experiencing God's presence.",
-  //   registrationLink: "https://icecamp2025.netlify.app/",
-  //   detailsLink: "https://icecamp2025.netlify.app/",
-  // },
+  {
+    id: 8,
+    title: "Mountain Takers Conference",
+    startDate: "2026-04-12",
+    endDate: "2026-04-17",
+    time: "From 8 am",
+    location: "JCC Kisumu Sanctuary",
+    image: "/Events/mttakers2026.jpeg",
+    description: "A 5 day conference of experiencing God's presence.",
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf1A5LkxNLxW8lgAzrlNjphrGdaHa5oFJ3hbjfCEEnlhlnRTg/viewform?usp=header",
+    detailsLink: "https://docs.google.com/forms/d/e/1FAIpQLSf1A5LkxNLxW8lgAzrlNjphrGdaHa5oFJ3hbjfCEEnlhlnRTg/viewform?usp=header",
+  },
 ]
 
 export default function EventsPage() {

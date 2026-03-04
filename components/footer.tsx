@@ -9,7 +9,7 @@ export default function Footer() {
           <h3 className="text-lg font-bold">JCC Kisumu</h3>
           <p className="text-sm text-muted-foreground">The Light House of Africa.</p>
           <div className="flex space-x-4">
-            <Link href="#" className="text-muted-foreground hover:text-primary">
+            <Link href="https://www.facebook.com/bsp.kegohi/" className="text-muted-foreground hover:text-primary">
               <Facebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
             </Link>
@@ -17,11 +17,11 @@ export default function Footer() {
               <Twitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary">
+            <Link href="https://www.instagram.com/markkegohi/?hl=en" className="text-muted-foreground hover:text-primary">
               <Instagram className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary">
+            <Link href="https://www.youtube.com/@mkegohi7/featured" className="text-muted-foreground hover:text-primary">
               <Youtube className="h-5 w-5" />
               <span className="sr-only">YouTube</span>
             </Link>
@@ -59,13 +59,13 @@ export default function Footer() {
               <span className="font-medium">Sunday Main Service:</span> 11:30 AM - 2:00 PM
             </li>
             <li className="text-muted-foreground">
-              <span className="font-medium">Youth Service:</span> Sunday, 9:00 PM - 11:00 AM
+              <span className="font-medium">Youth Service:</span> Sunday, 9:30 PM - 11:00 AM
             </li>
             <li className="text-muted-foreground">
-              <span className="font-medium">Prayer Meeting:</span> Monday, 5:30 PM - 7:00 PM
+              <span className="font-medium">Prayer Meeting:</span> Monday, 5:30 PM - 6:30 PM
             </li>
             <li className="text-muted-foreground">
-              <span className="font-medium">Communion Service</span> Wednesday, 5:30 PM - 7:00 PM
+              <span className="font-medium">Communion Service</span> Wednesday, 5:30 PM - 6:30 PM
             </li>
             <li className="text-muted-foreground">
               <span className="font-medium">Mini-Kesha:</span>Friday, 6:00 PM - 11:00 PM
@@ -76,7 +76,7 @@ export default function Footer() {
           <h3 className="mb-4 text-lg font-bold">Contact Us</h3>
           <address className="not-italic space-y-2 text-sm text-muted-foreground">
             <p></p>
-            <p></p>
+            <p>P.O Box 1307 - 40100, Kisumu</p>
             <p>Phone: +25474 567 890</p>
             <p>Email: info@jcc.org</p>
           </address>

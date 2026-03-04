@@ -64,13 +64,13 @@ const departmentDetails = {
         image: "/Departments/youths/youths1.jpeg",
       },
       {
-        title: "Prayer Meeting",
-        description: "Every Monday, 5:30 PM to 6:30 PM.",
+        title: "Prayer Day",
+        description: "First Saturday of Every Month, 9:30 PM to 12:30 PM.",
         image: "/Departments/youths/youth-activities (2).jpeg",
       },
       {
         title: "Mini-Kesha",
-        description: "Every Tuesday from 6:00 PM to 11:00 PM.",
+        description: "Every Monday from 6:30 PM to 10:00 PM.",
         image: "/Departments/youths/youth-activities (3).jpeg",
       },
       {

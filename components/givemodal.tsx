@@ -42,19 +42,19 @@ const offerings: Offering[] = [
     // qrCode: "/qr-placeholder.svg",
   },
   {
-    name: "Kisumu Big Crusade",
-    paybill: "247247",
-    account: "628870",
-    description: "In support of our upcoming big crusade with papa Lai",
-    // qrCode: "/qr-placeholder.svg",
-  },
-  {
-    name: "30th Anniversary",
+    name: "Mountain Takers Conference",
     paybill: "247247",
     account: "166990",
-    description: "Celebrating 30 years of ministry",
+    description: "In support of our ongoing moutain takers conference.",
     // qrCode: "/qr-placeholder.svg",
   },
+  // {
+  //   name: "30th Anniversary",
+  //   paybill: "247247",
+  //   account: "166990",
+  //   description: "Celebrating 30 years of ministry",
+  //   // qrCode: "/qr-placeholder.svg",
+  // },
   // {
   //   name: "Missions",
   //   paybill: "247247",

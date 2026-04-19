@@ -1,158 +1,129 @@
-"use client"
-import { useMemo } from "react";
-import Image from "next/image"
-import Link from "next/link"
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, MapPin } from "lucide-react"
-import GiveModal from "@/components/givemodal"
+"use client";
+
+import { useMemo, useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Calendar, Clock, MapPin } from "lucide-react";
+import GiveModal from "@/components/givemodal";
 
 type EventItem = {
-  id: number
-  title: string
-  startDate: string
-  endDate: string
-  time: string
-  location: string
-  image: string
-  description?: string
-  registrationLink?: string
-  detailsLink?: string
-}
-
-// Sample events data
-const events: EventItem[] = [
-
-  {
-    id: 1,
-    title: "International Children Empowerment Camp",
-    startDate: "2025-12-07",
-    endDate: "2025-12-13",
-    time: "Whole Day",
-    location: "Kipsigis High School - Kericho",
-    image: "/Departments/children/ICE.jpeg",
-    description: "",
-    registrationLink: "https://icecamp2025.netlify.app/",
-  },
-  
-  {
-    id: 2,
-    title: "Youth Ablaze Conference",
-    startDate: "2025-12-14",
-    endDate: "2025-12-18",
-    time: "Whole Day",
-    location: "JCC Kisumu Sanctuary",
-    image: "/ABLAZE.png",
-    description: "",
-    registrationLink: "https://youthablaze2025.netlify.app/",
-  },
-
-   {
-    id: 2,
-    title: "Kisumu Big Crusade",
-    startDate: "2026-02-19",
-    endDate: "2026-02-22",
-    time: "From 4:00 pm",
-    location: "Sports Ground Kisumu",
-    image: "/Events/crusade_poster.jpeg",
-    description: "",
-    registrationLink: "",
-  },
-
-  // {
-  //   id: 6,
-  //   title: "31st Anniversary",
-  //   startDate: "2026-10-07",
-  //   endDate: "2026-10-13",
-  //   time: "Whole Day",
-  //   location: "JCC Kisumu Sanctuary",
-  //   image: "/30thAnniversary.jpeg",
-  //   description: "",
-  //   registrationLink: "https://icecamp2025.netlify.app/",
-  //   detailsLink: "https://icecamp2025.netlify.app/",
-  // },
-
-  // {
-  //   id: 7,
-  //   title: "Women of Great Influence",
-  //   startDate: "2026-08-07",
-  //   endDate: "2026-08-13",
-  //   time: "All Day",
-  //   location: "JCC Kisumu Sanctuary",
-  //   image: "/wogi.jfif?height=300&width=500",
-  //   description: "",
-  //   registrationLink: "https://icecamp2025.netlify.app/",
-  //   detailsLink: "https://icecamp2025.netlify.app/",
-  // },
-  {
-    id: 8,
-    title: "Mountain Takers Conference",
-    startDate: "2026-04-12",
-    endDate: "2026-04-17",
-    time: "From 8 am",
-    location: "JCC Kisumu Sanctuary",
-    image: "/Events/mttakers2026.jpeg",
-    description: "A 5 day conference of experiencing God's presence.",
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf1A5LkxNLxW8lgAzrlNjphrGdaHa5oFJ3hbjfCEEnlhlnRTg/viewform?usp=header",
-    detailsLink: "https://docs.google.com/forms/d/e/1FAIpQLSf1A5LkxNLxW8lgAzrlNjphrGdaHa5oFJ3hbjfCEEnlhlnRTg/viewform?usp=header",
-  },
-]
+  Event_id: number;
+  title: string;
+  start_date: string;
+  end_date: string;
+  time: string;
+  location: string;
+  image_url: string;
+  description?: string;
+  registration_link?: string;
+  details_link?: string;
+};
 
 export default function EventsPage() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [open, setOpen] = useState(false)
-  /* ------------------- State ------------------- */
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [events, setEvents] = useState<EventItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isGiveOpen, setIsGiveOpen] = useState(false);
 
-  const today = new Date()
+  // ✅ FETCH FROM SUPABASE
+  useEffect(() => {
+    const fetchEvents = async () => {
+      setLoading(true);
+
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .order("start_date", { ascending: true });
+
+      if (error) {
+        console.error(error);
+      } else {
+        setEvents(data || []);
+      }
+
+      setLoading(false);
+    };
+
+    fetchEvents();
+  }, []);
+
+  const today = new Date();
+
+  // ✅ SPLIT UPCOMING / PAST
+  const { upcomingEvents, pastEvents } = useMemo(() => {
+    const upcoming: EventItem[] = [];
+    const past: EventItem[] = [];
+
+    events.forEach((event) => {
+      const end = new Date(event.end_date);
+
+      if (end >= today) {
+        upcoming.push(event);
+      } else {
+        past.push(event);
+      }
+    });
+
+    return { upcomingEvents: upcoming, pastEvents: past };
+  }, [events]);
+
+// export default function EventsPage() {
+//   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+//   const [open, setOpen] = useState(false)
+//   /* ------------------- State ------------------- */
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const [isGiveOpen, setIsGiveOpen] = useState(false);
+
+//   const today = new Date()
   
 
-  //AUTO-SPLIT EVENTS
-  const { upcomingEvents, pastEvents } = useMemo(() => {
-  const upcoming: EventItem[] = []
-  const past: EventItem[] = []
+//   //AUTO-SPLIT EVENTS
+//   const { upcomingEvents, pastEvents } = useMemo(() => {
+//   const upcoming: EventItem[] = []
+//   const past: EventItem[] = []
 
-  events.forEach((event) => {
-    const end = new Date(event.endDate)
-    end >= today ? upcoming.push(event) : past.push(event)
-  })
-  // Sort upcoming events by startDate ascending
-  upcoming.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+//   events.forEach((event) => {
+//     const end = new Date(event.endDate)
+//     end >= today ? upcoming.push(event) : past.push(event)
+//   })
+//   // Sort upcoming events by startDate ascending
+//   upcoming.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
 
-  // Sort past events by startDate descending (most recent first)
-  past.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
-
-
-  return {
-    upcomingEvents: upcoming,
-    pastEvents: past,
-  }
-}, [events, today])
+//   // Sort past events by startDate descending (most recent first)
+//   past.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
 
 
+//   return {
+//     upcomingEvents: upcoming,
+//     pastEvents: past,
+//   }
+// }, [events, today])
 
-  // Close modal on Escape and lock scrolling when modal open
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setSelectedImage(null)
-    }
 
-    if (selectedImage) {
-      document.addEventListener("keydown", onKey)
-      // lock scroll
-      const original = document.body.style.overflow
-      document.body.style.overflow = "hidden"
-      return () => {
-        document.removeEventListener("keydown", onKey)
-        document.body.style.overflow = original
-      }
-    }
-    return
-  }, [selectedImage])
+
+//   // Close modal on Escape and lock scrolling when modal open
+//   useEffect(() => {
+//     function onKey(e: KeyboardEvent) {
+//       if (e.key === "Escape") setSelectedImage(null)
+//     }
+
+//     if (selectedImage) {
+//       document.addEventListener("keydown", onKey)
+//       // lock scroll
+//       const original = document.body.style.overflow
+//       document.body.style.overflow = "hidden"
+//       return () => {
+//         document.removeEventListener("keydown", onKey)
+//         document.body.style.overflow = original
+//       }
+//     }
+//     return
+//   }, [selectedImage])
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -234,142 +205,230 @@ export default function EventsPage() {
       </motion.section>
 
       {/* Events List */}
-      <section className="py-16">
-        <div className="container">
-          <Tabs defaultValue="upcoming" className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList>
-                <TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
-                <TabsTrigger value="past">Past Events</TabsTrigger>
-              </TabsList>
+<section className="py-16">
+  <div className="container">
+    <Tabs defaultValue="upcoming" className="w-full">
+      <div className="flex justify-center mb-8">
+        <TabsList>
+          <TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
+          <TabsTrigger value="past">Past Events</TabsTrigger>
+        </TabsList>
+      </div>
+
+      {/* ================= UPCOMING ================= */}
+      <TabsContent value="upcoming">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, staggerChildren: 0.2 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {upcomingEvents.length === 0 ? (
+            <div className="col-span-full text-center py-20">
+              <h3 className="text-2xl font-bold mb-2">
+                No Upcoming Events
+              </h3>
+              <p className="text-muted-foreground">
+                Please check back later for new events.
+              </p>
             </div>
-            <TabsContent value="upcoming">
+          ) : (
+            upcomingEvents.map((event) => (
               <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.8, staggerChildren: 0.2 }}
-                viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              > {upcomingEvents.length === 0 ? (
-                  <div className="col-span-full text-center py-20">
-                    <h3 className="text-2xl font-bold mb-2">
-                      No Upcoming Events
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Please check back later for new events.
-                    </p>
+                key={event.id}
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+              >
+                <Card className="overflow-hidden flex flex-col">
+
+                  {/* IMAGE */}
+                  <div
+                    className="aspect-video relative cursor-pointer"
+                    onClick={() => setSelectedImage(event.image_url)}
+                    role="button"
+                    aria-label={`Open flyer for ${event.title}`}
+                  >
+                    <Image
+                      src={event.image_url || "/placeholder.svg"}
+                      alt={event.title}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                ) : (
-                upcomingEvents.map((event) => (
-                  <motion.div key={event.id} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-                    <Card className="overflow-hidden flex flex-col">
-                      <div
-                        className="aspect-video relative cursor-pointer"
-                        onClick={() => setSelectedImage(event.image)}
-                        role="button"
-                        aria-label={`Open flyer for ${event.title}`}
-                      >
 
+                  {/* CONTENT */}
+                  <CardHeader>
+                    <CardTitle className="line-clamp-2">
+                      {event.title}
+                    </CardTitle>
+                  </CardHeader>
 
-                        <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-contain" />
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="line-clamp-2">{event.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <div className="flex items-start gap-3">
-                          <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                          <span>{event.startDate} to {event.endDate}</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                          <span>{event.location}</span>
-                        </div>
-                        <p className="text-muted-foreground line-clamp-3">{event.description}</p>
-                      </CardContent>
-                      <CardFooter className="mt-auto">
-                        <Button variant="outline" onClick={() => setIsGiveOpen(true)}>Partner With Us</Button>
-                              <GiveModal isOpen={isGiveOpen} onClose={() => setIsGiveOpen(false)} />
-                        {event.registrationLink && (
-  <Button asChild className="w-full">
-    <Link href={event.registrationLink} target="_blank" rel="noopener noreferrer">
-      Register Now!
+                  <CardContent className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                      <span>
+                        {event.start_date} to {event.end_date}
+                      </span>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                      <span>{event.time}</span>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                      <span>{event.location}</span>
+                    </div>
+
+                    <p className="text-muted-foreground line-clamp-3">
+                      {event.description}
+                    </p>
+                  </CardContent>
+
+                  {/* FOOTER */}
+                  <CardFooter className="mt-auto flex flex-col gap-3">
+
+  {/* TOP ROW */}
+  <div className="flex gap-3 w-full">
+    <Button
+      variant="outline"
+      className="flex-1"
+      onClick={() => setIsGiveOpen(true)}
+    >
+      Partner With Us
+    </Button>
+
+    {event.registration_link && (
+      <Button asChild className="flex-1">
+        <Link
+          href={event.registration_link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Register Now!
+        </Link>
+      </Button>
+    )}
+  </div>
+
+  {/* BOTTOM FULL-WIDTH BUTTON */}
+  <Button asChild variant="secondary" className="w-full">
+    <Link href={`/gallery/${event.event_id || event.id}`}>
+      View Gallery
     </Link>
   </Button>
-)}
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                )))}
-              </motion.div>
-            </TabsContent>
 
-            {/* Past Events */}
-            <TabsContent value="past">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.8, staggerChildren: 0.2 }}
-                viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              >
-                {pastEvents.map((event) => (
-                  <motion.div key={event.id} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-                    <Card className="overflow-hidden flex flex-col">
-                      <div
-                        className="aspect-video relative cursor-pointer"
-                        onClick={() => setSelectedImage(event.image)}
-                        role="button"
-                        aria-label={`Open flyer for ${event.title}`}
+  <GiveModal
+    isOpen={isGiveOpen}
+    onClose={() => setIsGiveOpen(false)}
+  />
+</CardFooter>
+                </Card>
+              </motion.div>
+            ))
+          )}
+        </motion.div>
+      </TabsContent>
+
+      {/* ================= PAST ================= */}
+      <TabsContent value="past">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, staggerChildren: 0.2 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {pastEvents.map((event) => (
+            <motion.div
+              key={event.id}
+              variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+            >
+              <Card className="overflow-hidden flex flex-col">
+
+                {/* IMAGE */}
+                <div
+                  className="aspect-video relative cursor-pointer"
+                  onClick={() => setSelectedImage(event.image_url)}
+                  role="button"
+                  aria-label={`Open flyer for ${event.title}`}
+                >
+                  <Image
+                    src={event.image_url || "/mtc2025"}
+                    alt={event.title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <CardHeader>
+                  <CardTitle className="line-clamp-2">
+                    {event.title}
+                  </CardTitle>
+                </CardHeader>
+
+                <CardContent className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                    <span>
+                      {event.start_date} to {event.end_date}
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                    <span>{event.time}</span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                    <span>{event.location}</span>
+                  </div>
+
+                  <p className="text-muted-foreground line-clamp-3">
+                    {event.description}
+                  </p>
+                </CardContent>
+
+                {/* FOOTER */}
+                <CardFooter className="mt-auto">
+                  {event.details_link && (
+                    <Button asChild variant="outline" className="w-full">
+                      <Link
+                        href={event.details_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        <Image src={event.image || "/mtc2025"} alt={event.title} fill className="object-contain" />
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="line-clamp-2">{event.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <div className="flex items-start gap-3">
-                          <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                          <span>{event.location}</span>
-                        </div>
-                        <p className="text-muted-foreground line-clamp-3">{event.description}</p>
-                      </CardContent>
-                      <CardFooter className="mt-auto">
-                        {event.detailsLink && (
-  <Button asChild variant="outline" className="w-full">
-    <Link href={event.detailsLink} target="_blank" rel="noopener noreferrer">View Details</Link>
+                        View Details
+                      </Link>
+                    </Button>
+                    
+                  )}
+                  <Button asChild variant="secondary" className="w-full">
+    <Link href={`/gallery/${event.event_id || event.id}`}>
+      View Gallery
+    </Link>
   </Button>
-)}
-
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
+                </CardFooter>
+              </Card>
+            </motion.div>
+          ))}
+          
+        </motion.div>
+      </TabsContent>
+    </Tabs>
+  </div>
+</section>
 
       {/* Calendar Section */}
       <motion.section
@@ -456,5 +515,4 @@ export default function EventsPage() {
       )}
     </div>
     
-  )
-}
+  )}

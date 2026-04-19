@@ -64,6 +64,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
+            <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
             <Footer />
           </div>
         </ThemeProvider>

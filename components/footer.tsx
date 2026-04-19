@@ -77,8 +77,8 @@ export default function Footer() {
           <address className="not-italic space-y-2 text-sm text-muted-foreground">
             <p></p>
             <p>P.O Box 1307 - 40100, Kisumu</p>
-            <p>Phone: +25474 567 890</p>
-            <p>Email: info@jcc.org</p>
+            <p>Phone: N/A</p>
+            <p>Email: N/A</p>
           </address>
         </div>
       </div>

@@ -269,20 +269,20 @@ export default function EventsPage() {
 
                   <CardContent className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                      <span>
+                      {/* <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" /> */}
+                      <span>📅
                         {event.start_date} to {event.end_date}
                       </span>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                      <span>{event.time}</span>
+                      {/* <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" /> */}
+                      <span>⏰{event.time}</span>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                      <span>{event.location}</span>
+                      {/* <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" /> */}
+                      <span>📍{event.location}</span>
                     </div>
 
                     <p className="text-muted-foreground line-clamp-3">
@@ -379,20 +379,20 @@ export default function EventsPage() {
 
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                    <span>
+                    {/* <Calendar className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" /> */}
+                    <span>📅
                       {event.start_date} to {event.end_date}
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                    <span>{event.time}</span>
+                    {/* <Clock className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" /> */}
+                    <span>⏰{event.time}</span>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                    <span>{event.location}</span>
+                    {/* <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" /> */}
+                    <span>📍{event.location}</span>
                   </div>
 
                   <p className="text-muted-foreground line-clamp-3">

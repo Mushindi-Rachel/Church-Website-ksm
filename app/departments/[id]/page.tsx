@@ -1,5 +1,5 @@
 "use client"
-
+import { use } from "react";
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { motion } from "framer-motion"
@@ -205,10 +205,16 @@ const departmentDetails = {
     ],
   },
 }
-export default function DepartmentDetail({ params }: { params: { id: string } }) {
-  const department = departmentDetails[Number(params.id) as keyof typeof departmentDetails]
+export default function DepartmentDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = use(params);
 
-  if (!department) return notFound()
+  const department = departmentDetails[id as keyof typeof departmentDetails];
+
+  if (!department) return notFound();
 
   return (
     <div className="flex flex-col min-h-screen">

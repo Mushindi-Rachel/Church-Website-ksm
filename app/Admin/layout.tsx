@@ -16,13 +16,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="flex min-h-screen">
 
       {/* SIDEBAR */}
-      <aside className="w-64 bg-black text-white p-5 flex flex-col mt-8">
+      <aside className="w-64 bg-black text-white p-5 flex flex-col">
 
   {/* TOP */}
   <div>
     <h1 className="text-xl font-bold mb-8 mt-10">Admin</h1>
 
-    <nav className="flex flex-col gap-4 mt-20">
+    <nav className="flex flex-col gap-4 mt-10">
         <Link href="/Admin" className="hover:text-gray-300">
         🏠 Dashboard
       </Link>

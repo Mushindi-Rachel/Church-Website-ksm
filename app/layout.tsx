@@ -9,6 +9,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jcckisumu.com"),
+  
   title: {
     default: "JCC Kisumu",
     template: "%s | JCC Kisumu",

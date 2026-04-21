@@ -1,21 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    webpack: (config, { isServer }) => {
-        if (!isServer) {
-            config.cache = false; // disable caching
-        }
-        return config;
-    },
-
     eslint: {
         ignoreDuringBuilds: true,
     },
+
     typescript: {
-        ignoreBuildErrors: true,
+        ignoreBuildErrors: false, // IMPORTANT: turn ON safety
     },
+
     images: {
         unoptimized: true,
     },
-}
 
-export default nextConfig
+    // optional but safe
+    reactStrictMode: true,
+};
+
+export default nextConfig;

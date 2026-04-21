@@ -345,10 +345,10 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <h3 className="text-2xl font-bold mb-2">30th Anniversary</h3>
+              <h3 className="text-2xl font-bold mb-2">Mountain Takers Conference</h3>
               <p className="flex items-center gap-2 mb-1">
                 <Clock className="h-5 w-5" />
-                <span>October 5th - 10th All Day</span>
+                <span>April 12th - 17th All Day</span>
               </p>
               <p className="flex items-center gap-2">
                 <MapPin className="h-5 w-5" />

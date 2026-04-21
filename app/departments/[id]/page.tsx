@@ -212,8 +212,7 @@ export default function DepartmentDetail({
 }) {
   const { id } = use(params);
 
-  const department = departmentDetails[id as keyof typeof departmentDetails];
-
+  const department = departmentDetails[Number(id) as keyof typeof departmentDetails];
   if (!department) return notFound();
 
   return (

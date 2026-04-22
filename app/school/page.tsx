@@ -269,7 +269,7 @@ export default function SchoolPage() {
           Life at BMCC School
         </h2>
         <Carousel
-          plugins={[Autoplay({ delay: 4000 })]}
+          plugins={[Autoplay({ delay: 4000 }) as unknown as any]}
           opts={{ align: "center", loop: true }}
           className="w-full max-w-5xl mx-auto"
         >

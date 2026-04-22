@@ -9,9 +9,9 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Calendar } from "lucide-react";
 import Link from "next/link";
 
-
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
-
+const ReactPlayer = dynamic(() => import("react-player"), {
+  ssr: false,
+}) as any;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -145,8 +145,12 @@ export default function SermonsPage() {
                   playing
                   config={{
                     youtube: {
-                      playerVars: { modestbranding: 1, rel: 0, autoplay: 1 },
-                    },
+                      playerVars: {
+                        modestbranding: 1,
+                        rel: 0,
+                        autoplay: 1,
+                      },
+                    } as any,
                   }}
                   onError={(e) => console.error("Video error:", e)}
                 />

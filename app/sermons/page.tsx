@@ -152,7 +152,7 @@ export default function SermonsPage() {
                       },
                     } as any,
                   }}
-                  onError={(e) => console.error("Video error:", e)}
+                  onError={(e: unknown) => console.error("Video error:", e)}
                 />
               </div>
               <div className="flex justify-end p-4 bg-gray-900">

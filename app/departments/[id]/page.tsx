@@ -339,7 +339,7 @@ export default function DepartmentDetail({
       )}
 
       {/* Services (if present) */}
-      {department.services && (
+      {"services" in department && (
         <section className="container py-12 bg-muted/50 rounded-lg">
           <h2 className="text-2xl font-bold mb-8 text-center">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

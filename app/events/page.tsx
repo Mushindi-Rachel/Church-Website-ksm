@@ -318,7 +318,7 @@ export default function EventsPage() {
 
   {/* BOTTOM FULL-WIDTH BUTTON */}
   <Button asChild variant="secondary" className="w-full">
-    <Link href={`/gallery/${event.event_id || event.id}`}>
+    <Link href={`/gallery/${ event.id}`}>
       View Gallery
     </Link>
   </Button>
@@ -415,7 +415,7 @@ export default function EventsPage() {
                     
                   )}
                   <Button asChild variant="secondary" className="w-full">
-    <Link href={`/gallery/${event.event_id || event.id}`}>
+    <Link href={`/gallery/${event.id}`}>
       View Gallery
     </Link>
   </Button>

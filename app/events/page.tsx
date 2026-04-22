@@ -12,7 +12,7 @@ import { Calendar, Clock, MapPin } from "lucide-react";
 import GiveModal from "@/components/givemodal";
 
 type EventItem = {
-  Event_id: number;
+  id: number;
   title: string;
   start_date: string;
   end_date: string;
@@ -70,7 +70,7 @@ export default function EventsPage() {
     });
 
     return { upcomingEvents: upcoming, pastEvents: past };
-  }, [events]);
+  }, [events])
 
 // export default function EventsPage() {
 //   const [selectedImage, setSelectedImage] = useState<string | null>(null)

@@ -159,9 +159,9 @@ export default function HomeBibleFellowshipPage() {
             {hbfGroups.map((group) => (
               <motion.div key={group.id} variants={fadeInUp}>
                 <Card className="overflow-hidden flex flex-col hover:shadow-lg transition">
-                  <div className="aspect-video relative">
+                  {/* <div className="aspect-video relative">
                     <Image src={group.image || "/hbf-background.png"} alt={group.name} fill className="object-cover" />
-                  </div>
+                  </div> */}
                   <CardHeader>
                     <CardTitle>{group.name}</CardTitle>
                   </CardHeader>

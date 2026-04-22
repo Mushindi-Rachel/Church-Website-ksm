@@ -306,13 +306,13 @@ export default function DepartmentDetail({
 
 
       {/* Sub-ministries (Women’s Ministry only) */}
-      {department.subMinistries && (
-        <section className="container py-12">
-          <h2 className="text-2xl font-bold mb-8 text-center">
-            The Ladies Ministry is also composed of:
-          </h2>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            {department.subMinistries.map((sub, i) => (
+      {"subMinistries" in department && (
+  <section className="container py-12">
+    <h2 className="text-2xl font-bold mb-8 text-center">
+      The Ladies Ministry is also composed of:
+    </h2>
+    <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      {department.subMinistries.map((sub, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
@@ -369,7 +369,7 @@ export default function DepartmentDetail({
       )}
 
      {/* Regions Section (Only for Men’s Ministry) */}
-{department.regions && (
+{"regions" in department && (
   <section className="bg-white py-16 px-6">
     <h2 className="text-3xl font-bold text-center mb-12">
       Our {department.name} Regions

@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +14,7 @@ import GiveModal from "@/components/givemodal";
 
 type EventItem = {
   id: number;
+  event_id: string;
   title: string;
   start_date: string;
   end_date: string;
@@ -23,12 +25,57 @@ type EventItem = {
   registration_link?: string;
   details_link?: string;
 };
+type Gallery = {
+  id: string;
+  image_url: string;
+  event_id: string;
+};
 
 export default function EventsPage() {
   const [events, setEvents] = useState<EventItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isGiveOpen, setIsGiveOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [gallery, setGallery] = useState<Gallery[]>([]);
+  const params = useParams();
+
+const eventId = Array.isArray(params.eventId)
+  ? params.eventId[0]
+  : params.eventId;
+
+  const [eventTitle, setEventTitle] = useState("");
+
+  const fetchGallery = async () => {
+  if (!eventId) return;
+
+  setLoading(true);
+
+  const id = String(eventId);
+
+  const { data: galleryData, error: galleryError } = await supabase
+    .from("event_gallery")
+    .select("*")
+    .eq("event_id", id);
+
+  if (galleryError) console.error(galleryError);
+  else setGallery(galleryData || []);
+
+  const { data: eventData, error: eventError } = await supabase
+    .from("events")
+    .select("title")
+    .eq("id", id)
+    .single();
+
+  if (eventError) console.error(eventError);
+  else setEventTitle(eventData?.title || "");
+
+  setLoading(false);
+};
+
+useEffect(() => {
+  fetchGallery();
+}, [eventId]);
 
   // ✅ FETCH FROM SUPABASE
   useEffect(() => {
@@ -54,6 +101,7 @@ export default function EventsPage() {
 
   const today = new Date();
 
+  
   // ✅ SPLIT UPCOMING / PAST
   const { upcomingEvents, pastEvents } = useMemo(() => {
     const upcoming: EventItem[] = [];
@@ -415,7 +463,7 @@ export default function EventsPage() {
                     
                   )}
                   <Button asChild variant="secondary" className="w-full">
-    <Link href={`/gallery/${event.id}`}>
+    <Link href={`/gallery/${event.event_id}`}>
       View Gallery
     </Link>
   </Button>

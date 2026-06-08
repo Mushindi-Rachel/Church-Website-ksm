@@ -24,7 +24,7 @@ const departments = [
       "Guiding the young generation in their faith journey through relevant teaching, mentorship, and community building.",
     image: "/youth.jpeg",
     leader: "Pastor Luke Obeto",
-    meetingTimes: "Monday at 5:30 PM and Tuesday at 6:00 PM - 11:00 PM",
+    meetingTimes: "Monday at 7:00 PM - 10:00 PM & Every first Saturday of the month"
   },
   {
     id: 3,
@@ -33,6 +33,7 @@ const departments = [
       "Empowering women to deepen their relationship with God and build meaningful connections with one another.",
     image: "/Departments/581A1446.JPG",
     leader: "Pastor Selina Nzioka",
+    meetingTimes: "Monday at 5:30 PM & Every second Saturday of the month"
   },
   {
     id: 4,
@@ -40,7 +41,8 @@ const departments = [
     description:
       "Encouraging men to grow in their faith and leadership through fellowship, study, and service.",
     image: "/Departments/581A1650.JPG",
-    leader: "Pastor ",
+    leader: "Pastor Timothy Nzioka",
+    meetingTimes: "Monday at 5:30 PM & Every third Saturday of the month"
   },
   // {
   //   id: 5,

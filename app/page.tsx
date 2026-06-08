@@ -73,7 +73,7 @@ const weeklyPrograms = [
   {
     day: "Sunday",
     events: [
-      { time: "6:00 AM - 9:00 AM", name: "First Service" },
+      { time: "6:00 AM - 9:30 AM", name: "First Service" },
       { time: "9:30 AM - 11:00 PM", name: "Youth Service" },
       { time: "11:30 AM - 2:00 PM", name: "Main Service" },
     ],
@@ -115,7 +115,7 @@ const weeklyPrograms = [
     events: [
       { time: "5:30 AM - 7:00 AM", name: "Morning Glory" },
       { time: "12:30 PM - 2:00 PM", name: "Grace Hour" },
-      { time: "6:00 PM - 11:00 PM", name: "Mini-Kesha" },
+      { time: "9:00 PM - 4:00 AM", name: "Kesha" },
     ],
   },
 ]

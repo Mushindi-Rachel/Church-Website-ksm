@@ -102,7 +102,7 @@ useEffect(() => {
   const today = new Date();
 
   
-  // ✅ SPLIT UPCOMING / PAST
+    // ✅ SPLIT UPCOMING / PAST
   const { upcomingEvents, pastEvents } = useMemo(() => {
     const upcoming: EventItem[] = [];
     const past: EventItem[] = [];
@@ -117,7 +117,17 @@ useEffect(() => {
       }
     });
 
-    return { upcomingEvents: upcoming, pastEvents: past };
+    // Upcoming: soonest first
+    upcoming.sort(
+      (a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+    );
+
+    // Past: latest first
+    past.sort(
+      (a, b) => new Date(b.start_date).getTime() - new Date(a.start_date).getTime()
+    );
+
+    return { upcomingEvents: upcoming, pastEvents: past.slice(0, 6) };
   }, [events])
 
 // export default function EventsPage() {

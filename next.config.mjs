@@ -5,7 +5,7 @@ const nextConfig = {
     },
 
     typescript: {
-        ignoreBuildErrors: false, // IMPORTANT: turn ON safety
+        ignoreBuildErrors: false, 
     },
 
     images: {

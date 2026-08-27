@@ -28,7 +28,7 @@ const departmentDetails = {
         image: "/Departments/children/581A1492.JPG",
       },
       {
-        title: "International Empowerment Camp (ICE)",
+        title: "International Children Empowerment - ICE Camp",
         description: "Annual camp where children grow spiritually and socially.",
         image: "/Departments/children/children3.jpeg",
       },
